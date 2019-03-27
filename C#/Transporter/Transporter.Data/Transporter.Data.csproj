@@ -55,6 +55,8 @@
     <Reference Include="System" />
     <Reference Include="System.ComponentModel.DataAnnotations" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -63,17 +65,58 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CUSTOMER.cs">
+      <DependentUpon>TransporterData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="DRIVER.cs">
+      <DependentUpon>TransporterData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="PAKAGE.cs">
+      <DependentUpon>TransporterData.tt</DependentUpon>
+    </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="TransporterData.Context.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransporterData.Context.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransporterData.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransporterData.tt</DependentUpon>
+    </Compile>
+    <Compile Include="TransporterData.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>TransporterData.edmx</DependentUpon>
+    </Compile>
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+    <EntityDeploy Include="TransporterData.edmx">
+      <Generator>EntityModelCodeGenerator</Generator>
+      <LastGenOutput>TransporterData.Designer.cs</LastGenOutput>
+    </EntityDeploy>
+    <None Include="TransporterData.edmx.diagram">
+      <DependentUpon>TransporterData.edmx</DependentUpon>
+    </None>
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="TransporterData.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TransporterData.edmx</DependentUpon>
+      <LastGenOutput>TransporterData.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="TransporterData.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>TransporterData.edmx</DependentUpon>
+      <LastGenOutput>TransporterData.cs</LastGenOutput>
+    </Content>
     <Content Include="TransporterDatabase.mdf">
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Content>
@@ -93,6 +136,9 @@
       <ProductName>.NET Framework 3.5 SP1</ProductName>
       <Install>false</Install>
     </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
