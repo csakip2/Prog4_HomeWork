@@ -20,8 +20,7 @@ namespace Transporter.Program
         /// <param name="args">Main method argument.</param>
         private static void Main(string[] args)
         {
-            int param = -1
-                ;
+            int param = -1;
 
             while (param != 0)
             {
@@ -32,12 +31,17 @@ namespace Transporter.Program
                 Console.WriteLine("Add new customer: 4");
                 Console.WriteLine("Add new pakage: 5");
                 Console.WriteLine("Add new driver: 6");
-                Console.WriteLine("Delete customer: 7");
-                Console.WriteLine("Delete pakage: 8");
-                Console.WriteLine("Delete driver: 9");
-                Console.WriteLine("Change customer: 10");
-                Console.WriteLine("Change pakage: 11");
-                Console.WriteLine("Change driver: 12");
+                Console.WriteLine("Change customer: 7");
+                Console.WriteLine("Change pakage: 8");
+                Console.WriteLine("Change driver: 9");
+                Console.WriteLine("Delete customer: 10");
+                Console.WriteLine("Delete pakage: 11");
+                Console.WriteLine("Delete driver: 12");
+                Console.WriteLine("Retrive every table: 13");
+                Console.WriteLine("Retrive pakage driver: 14");
+                Console.WriteLine("Change pakage driver: 15");
+                Console.WriteLine("Retrive pakages full route: 16");
+                Console.WriteLine("Get price and transport time estimate: 17");
 
                 param = int.Parse(Console.ReadLine());
 
@@ -92,8 +96,23 @@ namespace Transporter.Program
                 case 12:
                     Console.WriteLine("Not Implemented.");
                     break;
+                case 13:
+                    Console.WriteLine("Not Implemented.");
+                    break;
+                case 14:
+                    Console.WriteLine("Not Implemented.");
+                    break;
+                case 15:
+                    Console.WriteLine("Not Implemented.");
+                    break;
+                case 16:
+                    Console.WriteLine("Not Implemented.");
+                    break;
+                case 17:
+                    Console.WriteLine("Not Implemented.");
+                    break;
                 default:
-                    Console.WriteLine("Give a number between 0 and 15!");
+                    Console.WriteLine("Give a number between 0 and 17!");
                     break;
             }
 
