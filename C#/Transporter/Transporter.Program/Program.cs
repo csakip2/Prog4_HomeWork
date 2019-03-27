@@ -9,7 +9,10 @@ namespace Transporter.Program
     using System.Text;
     using System.Threading.Tasks;
 
-    public class Program
+    /// <summary>
+    /// Main class.
+    /// </summary>
+    internal class Program
     {
         /// <summary>
         /// Main method, handels the menu system.
