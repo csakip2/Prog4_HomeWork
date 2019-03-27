@@ -1,0 +1,253 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+  <!-- EF Runtime content -->
+  <edmx:Runtime>
+    <!-- SSDL content -->
+    <edmx:StorageModels>
+      <Schema Namespace="TransporterDatabaseModel.Store" Provider="System.Data.SqlClient" ProviderManifestToken="2012" Alias="Self" xmlns:store="http://schemas.microsoft.com/ado/2007/12/edm/EntityStoreSchemaGenerator" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm/ssdl">
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CNAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="CADRESS" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="CPHONE_NUM" Type="varchar" MaxLength="12" />
+          <Property Name="CE_MAIL" Type="varchar" MaxLength="100" Nullable="false" />
+        </EntityType>
+        <EntityType Name="DRIVER">
+          <Key>
+            <PropertyRef Name="DRIVER_ID" />
+          </Key>
+          <Property Name="DRIVER_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DNAME" Type="varchar" MaxLength="20" Nullable="false" />
+          <Property Name="DADRESS" Type="varchar" MaxLength="100" Nullable="false" />
+          <Property Name="DBIRTH_DATE" Type="datetime" Nullable="false" />
+          <Property Name="DLICENCE_PLATE" Type="varchar" MaxLength="6" Nullable="false" />
+          <Property Name="DPHONE_NUM" Type="varchar" MaxLength="12" />
+        </EntityType>
+        <EntityType Name="PAKAGE">
+          <Key>
+            <PropertyRef Name="PAKAGE_ID" />
+          </Key>
+          <Property Name="PAKAGE_ID" Type="numeric" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PSIZE" Type="varchar" MaxLength="6" />
+          <Property Name="PWEIGHT" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PSENDER_ID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PRECEIVER_ID" Type="numeric" Precision="18" Scale="0" />
+          <Property Name="PDRIVER_ID" Type="numeric" Precision="18" Scale="0" />
+        </EntityType>
+        <Association Name="FK__PAKAGE__PDRIVER___2B3F6F97">
+          <End Role="DRIVER" Type="Self.DRIVER" Multiplicity="0..1" />
+          <End Role="PAKAGE" Type="Self.PAKAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DRIVER">
+              <PropertyRef Name="DRIVER_ID" />
+            </Principal>
+            <Dependent Role="PAKAGE">
+              <PropertyRef Name="PDRIVER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PAKAGE__PRECEIVE__2A4B4B5E">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+          <End Role="PAKAGE" Type="Self.PAKAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="PAKAGE">
+              <PropertyRef Name="PRECEIVER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PAKAGE__PSENDER___29572725">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+          <End Role="PAKAGE" Type="Self.PAKAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="PAKAGE">
+              <PropertyRef Name="PSENDER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TransporterDatabaseModelStoreContainer">
+          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="DRIVER" EntityType="Self.DRIVER" Schema="dbo" store:Type="Tables" />
+          <EntitySet Name="PAKAGE" EntityType="Self.PAKAGE" Schema="dbo" store:Type="Tables" />
+          <AssociationSet Name="FK__PAKAGE__PDRIVER___2B3F6F97" Association="Self.FK__PAKAGE__PDRIVER___2B3F6F97">
+            <End Role="DRIVER" EntitySet="DRIVER" />
+            <End Role="PAKAGE" EntitySet="PAKAGE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PAKAGE__PRECEIVE__2A4B4B5E" Association="Self.FK__PAKAGE__PRECEIVE__2A4B4B5E">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="PAKAGE" EntitySet="PAKAGE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PAKAGE__PSENDER___29572725" Association="Self.FK__PAKAGE__PSENDER___29572725">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="PAKAGE" EntitySet="PAKAGE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:StorageModels>
+    <!-- CSDL content -->
+    <edmx:ConceptualModels>
+      <Schema Namespace="TransporterDatabaseModel" Alias="Self" annotation:UseStrongSpatialTypes="false" xmlns:annotation="http://schemas.microsoft.com/ado/2009/02/edm/annotation" xmlns:customannotation="http://schemas.microsoft.com/ado/2013/11/edm/customannotation" xmlns="http://schemas.microsoft.com/ado/2009/11/edm">
+        <EntityType Name="CUSTOMER">
+          <Key>
+            <PropertyRef Name="CUSTOMER_ID" />
+          </Key>
+          <Property Name="CUSTOMER_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="CNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CADRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="CPHONE_NUM" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <Property Name="CE_MAIL" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <NavigationProperty Name="PAKAGE" Relationship="Self.FK__PAKAGE__PRECEIVE__2A4B4B5E" FromRole="CUSTOMER" ToRole="PAKAGE" />
+          <NavigationProperty Name="PAKAGE1" Relationship="Self.FK__PAKAGE__PSENDER___29572725" FromRole="CUSTOMER" ToRole="PAKAGE" />
+        </EntityType>
+        <EntityType Name="DRIVER">
+          <Key>
+            <PropertyRef Name="DRIVER_ID" />
+          </Key>
+          <Property Name="DRIVER_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="DNAME" Type="String" MaxLength="20" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DADRESS" Type="String" MaxLength="100" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DBIRTH_DATE" Type="DateTime" Nullable="false" Precision="3" />
+          <Property Name="DLICENCE_PLATE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" Nullable="false" />
+          <Property Name="DPHONE_NUM" Type="String" MaxLength="12" FixedLength="false" Unicode="false" />
+          <NavigationProperty Name="PAKAGE" Relationship="Self.FK__PAKAGE__PDRIVER___2B3F6F97" FromRole="DRIVER" ToRole="PAKAGE" />
+        </EntityType>
+        <EntityType Name="PAKAGE">
+          <Key>
+            <PropertyRef Name="PAKAGE_ID" />
+          </Key>
+          <Property Name="PAKAGE_ID" Type="Decimal" Precision="18" Scale="0" Nullable="false" />
+          <Property Name="PSIZE" Type="String" MaxLength="6" FixedLength="false" Unicode="false" />
+          <Property Name="PWEIGHT" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PSENDER_ID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PRECEIVER_ID" Type="Decimal" Precision="18" Scale="0" />
+          <Property Name="PDRIVER_ID" Type="Decimal" Precision="18" Scale="0" />
+          <NavigationProperty Name="CUSTOMER" Relationship="Self.FK__PAKAGE__PRECEIVE__2A4B4B5E" FromRole="PAKAGE" ToRole="CUSTOMER" />
+          <NavigationProperty Name="CUSTOMER1" Relationship="Self.FK__PAKAGE__PSENDER___29572725" FromRole="PAKAGE" ToRole="CUSTOMER" />
+          <NavigationProperty Name="DRIVER" Relationship="Self.FK__PAKAGE__PDRIVER___2B3F6F97" FromRole="PAKAGE" ToRole="DRIVER" />
+        </EntityType>
+        <Association Name="FK__PAKAGE__PRECEIVE__2A4B4B5E">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+          <End Role="PAKAGE" Type="Self.PAKAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="PAKAGE">
+              <PropertyRef Name="PRECEIVER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PAKAGE__PSENDER___29572725">
+          <End Role="CUSTOMER" Type="Self.CUSTOMER" Multiplicity="0..1" />
+          <End Role="PAKAGE" Type="Self.PAKAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="CUSTOMER">
+              <PropertyRef Name="CUSTOMER_ID" />
+            </Principal>
+            <Dependent Role="PAKAGE">
+              <PropertyRef Name="PSENDER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <Association Name="FK__PAKAGE__PDRIVER___2B3F6F97">
+          <End Role="DRIVER" Type="Self.DRIVER" Multiplicity="0..1" />
+          <End Role="PAKAGE" Type="Self.PAKAGE" Multiplicity="*" />
+          <ReferentialConstraint>
+            <Principal Role="DRIVER">
+              <PropertyRef Name="DRIVER_ID" />
+            </Principal>
+            <Dependent Role="PAKAGE">
+              <PropertyRef Name="PDRIVER_ID" />
+            </Dependent>
+          </ReferentialConstraint>
+        </Association>
+        <EntityContainer Name="TransporterDatabaseEntities" annotation:LazyLoadingEnabled="true">
+          <EntitySet Name="CUSTOMER" EntityType="Self.CUSTOMER" />
+          <EntitySet Name="DRIVER" EntityType="Self.DRIVER" />
+          <EntitySet Name="PAKAGE" EntityType="Self.PAKAGE" />
+          <AssociationSet Name="FK__PAKAGE__PRECEIVE__2A4B4B5E" Association="Self.FK__PAKAGE__PRECEIVE__2A4B4B5E">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="PAKAGE" EntitySet="PAKAGE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PAKAGE__PSENDER___29572725" Association="Self.FK__PAKAGE__PSENDER___29572725">
+            <End Role="CUSTOMER" EntitySet="CUSTOMER" />
+            <End Role="PAKAGE" EntitySet="PAKAGE" />
+          </AssociationSet>
+          <AssociationSet Name="FK__PAKAGE__PDRIVER___2B3F6F97" Association="Self.FK__PAKAGE__PDRIVER___2B3F6F97">
+            <End Role="DRIVER" EntitySet="DRIVER" />
+            <End Role="PAKAGE" EntitySet="PAKAGE" />
+          </AssociationSet>
+        </EntityContainer>
+      </Schema>
+    </edmx:ConceptualModels>
+    <!-- C-S mapping content -->
+    <edmx:Mappings>
+      <Mapping Space="C-S" xmlns="http://schemas.microsoft.com/ado/2009/11/mapping/cs">
+        <EntityContainerMapping StorageEntityContainer="TransporterDatabaseModelStoreContainer" CdmEntityContainer="TransporterDatabaseEntities">
+          <EntitySetMapping Name="CUSTOMER">
+            <EntityTypeMapping TypeName="TransporterDatabaseModel.CUSTOMER">
+              <MappingFragment StoreEntitySet="CUSTOMER">
+                <ScalarProperty Name="CUSTOMER_ID" ColumnName="CUSTOMER_ID" />
+                <ScalarProperty Name="CNAME" ColumnName="CNAME" />
+                <ScalarProperty Name="CADRESS" ColumnName="CADRESS" />
+                <ScalarProperty Name="CPHONE_NUM" ColumnName="CPHONE_NUM" />
+                <ScalarProperty Name="CE_MAIL" ColumnName="CE_MAIL" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="DRIVER">
+            <EntityTypeMapping TypeName="TransporterDatabaseModel.DRIVER">
+              <MappingFragment StoreEntitySet="DRIVER">
+                <ScalarProperty Name="DRIVER_ID" ColumnName="DRIVER_ID" />
+                <ScalarProperty Name="DNAME" ColumnName="DNAME" />
+                <ScalarProperty Name="DADRESS" ColumnName="DADRESS" />
+                <ScalarProperty Name="DBIRTH_DATE" ColumnName="DBIRTH_DATE" />
+                <ScalarProperty Name="DLICENCE_PLATE" ColumnName="DLICENCE_PLATE" />
+                <ScalarProperty Name="DPHONE_NUM" ColumnName="DPHONE_NUM" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+          <EntitySetMapping Name="PAKAGE">
+            <EntityTypeMapping TypeName="TransporterDatabaseModel.PAKAGE">
+              <MappingFragment StoreEntitySet="PAKAGE">
+                <ScalarProperty Name="PAKAGE_ID" ColumnName="PAKAGE_ID" />
+                <ScalarProperty Name="PSIZE" ColumnName="PSIZE" />
+                <ScalarProperty Name="PWEIGHT" ColumnName="PWEIGHT" />
+                <ScalarProperty Name="PSENDER_ID" ColumnName="PSENDER_ID" />
+                <ScalarProperty Name="PRECEIVER_ID" ColumnName="PRECEIVER_ID" />
+                <ScalarProperty Name="PDRIVER_ID" ColumnName="PDRIVER_ID" />
+              </MappingFragment>
+            </EntityTypeMapping>
+          </EntitySetMapping>
+        </EntityContainerMapping>
+      </Mapping>
+    </edmx:Mappings>
+  </edmx:Runtime>
+  <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <Connection>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="MetadataArtifactProcessing" Value="EmbedInOutputAssembly" />
+      </DesignerInfoPropertySet>
+    </Connection>
+    <Options>
+      <DesignerInfoPropertySet>
+        <DesignerProperty Name="ValidateOnBuild" Value="true" />
+        <DesignerProperty Name="EnablePluralization" Value="false" />
+        <DesignerProperty Name="IncludeForeignKeysInModel" Value="true" />
+        <DesignerProperty Name="UseLegacyProvider" Value="false" />
+        <DesignerProperty Name="CodeGenerationStrategy" Value="None" />
+      </DesignerInfoPropertySet>
+    </Options>
+    <!-- Diagram content (shape and connector positions) -->
+    <Diagrams></Diagrams>
+  </Designer>
+</edmx:Edmx>
