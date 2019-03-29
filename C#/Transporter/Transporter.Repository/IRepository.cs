@@ -11,7 +11,7 @@ namespace Transporter.Repository
     /// Contains all needed CRUD methods.
     /// </summary>
     /// <typeparam name="TEntity">Generic TEntity for all enttities.</typeparam>
-    public interface IRepository<TEntity>
+    internal interface IRepository<TEntity>
     {
         /// <summary>
         /// Returns all elements of a table as IQueryable.
