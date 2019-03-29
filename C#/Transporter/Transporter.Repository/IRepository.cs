@@ -30,12 +30,5 @@ namespace Transporter.Repository
         /// </summary>
         /// <param name="entity">The entity to remove.</param>
         void Remove(TEntity entity);
-
-        /// <summary>
-        /// Removes the 1st given entity and then inserts the 2nd given entity.
-        /// </summary>
-        /// <param name="fromEntity">Removes this one.</param>
-        /// <param name="toEntity">Inserts this one.</param>
-        void Change(TEntity fromEntity, TEntity toEntity);
     }
 }
