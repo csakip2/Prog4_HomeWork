@@ -10,7 +10,10 @@ namespace Transporter.Repository
     using System.Text;
     using System.Threading.Tasks;
 
-    interface IDriverRepository
+    /// <summary>
+    /// Repository interface for driver specific methods.
+    /// </summary>
+    internal interface IDriverRepository : IRepository<Data.DRIVER>
     {
     }
 }
