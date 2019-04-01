@@ -16,31 +16,58 @@ namespace Transporter.Repository
     /// </summary>
     internal class CustomerRepository : ICustomerRepository
     {
+        /// <summary>
+        /// Changes the customers adress.
+        /// </summary>
+        /// <param name="id">The customers id.</param>
+        /// <param name="newAdress">The customers new adress.</param>
         public void ChangeAdress(int id, string newAdress)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Changes the customers e-mail adress.
+        /// </summary>
+        /// <param name="id">The customers id.</param>
+        /// <param name="newEmail">The customers new e-mail adress.</param>
         public void ChangeEmail(int id, string newEmail)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Changes the customers phone number.
+        /// </summary>
+        /// <param name="id">The customers id.</param>
+        /// <param name="newPhoneNum">The customers new phone number.</param>
         public void ChangePhoneNum(int id, string newPhoneNum)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Retturns all customers as IQueryable.
+        /// </summary>
+        /// <returns>Everything from the Customer table.</returns>
         public IQueryable<CUSTOMER> GetTable()
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Inserts a new customer into the table.
+        /// </summary>
+        /// <param name="entity">The new Customer.</param>
         public void Insert(CUSTOMER entity)
         {
             throw new NotImplementedException();
         }
 
+        /// <summary>
+        /// Removes a customer from the table.
+        /// </summary>
+        /// <param name="entity">The customer to remove as an entyty.</param>
         public void Remove(CUSTOMER entity)
         {
             throw new NotImplementedException();
