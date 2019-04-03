@@ -81,7 +81,8 @@ namespace Transporter.Repository
         /// <param name="entity">The customer to remove as an entyty.</param>
         public void Remove(CUSTOMER entity)
         {
-            throw new NotImplementedException();
+            this.tde.CUSTOMER.Remove(entity);
+            this.tde.SaveChanges();
         }
     }
 }
