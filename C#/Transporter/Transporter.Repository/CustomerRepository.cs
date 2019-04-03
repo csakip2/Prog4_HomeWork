@@ -16,6 +16,8 @@ namespace Transporter.Repository
     /// </summary>
     internal class CustomerRepository : ICustomerRepository
     {
+        private readonly TransporterDatabaseEntities tde = new TransporterDatabaseEntities();
+
         /// <summary>
         /// Changes the customers adress.
         /// </summary>
@@ -23,7 +25,9 @@ namespace Transporter.Repository
         /// <param name="newAdress">The customers new adress.</param>
         public void ChangeAdress(int id, string newAdress)
         {
-            throw new NotImplementedException();
+            CUSTOMER customer = this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID == id).Single();
+            customer.CADRESS = newAdress;
+            this.tde.SaveChanges();
         }
 
         /// <summary>
