@@ -71,7 +71,8 @@ namespace Transporter.Repository
         /// <param name="entity">The new Customer.</param>
         public void Insert(CUSTOMER entity)
         {
-            throw new NotImplementedException();
+            this.tde.CUSTOMER.Add(entity);
+            this.tde.SaveChanges();
         }
 
         /// <summary>
