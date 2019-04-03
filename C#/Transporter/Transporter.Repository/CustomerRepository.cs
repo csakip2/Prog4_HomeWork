@@ -49,7 +49,9 @@ namespace Transporter.Repository
         /// <param name="newPhoneNum">The customers new phone number.</param>
         public void ChangePhoneNum(int id, string newPhoneNum)
         {
-            throw new NotImplementedException();
+            CUSTOMER customer = this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID == id).Single();
+            customer.CPHONE_NUM = newPhoneNum;
+            this.tde.SaveChanges();
         }
 
         /// <summary>
