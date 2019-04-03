@@ -60,7 +60,9 @@ namespace Transporter.Repository
         /// <returns>Everything from the Customer table.</returns>
         public IQueryable<CUSTOMER> GetTable()
         {
-            throw new NotImplementedException();
+            IQueryable<CUSTOMER> table = this.tde.CUSTOMER;
+
+            return table;
         }
 
         /// <summary>
