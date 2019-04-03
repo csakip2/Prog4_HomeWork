@@ -37,7 +37,9 @@ namespace Transporter.Repository
         /// <param name="newEmail">The customers new e-mail adress.</param>
         public void ChangeEmail(int id, string newEmail)
         {
-            throw new NotImplementedException();
+            CUSTOMER customer = this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID == id).Single();
+            customer.CE_MAIL = newEmail;
+            this.tde.SaveChanges();
         }
 
         /// <summary>
