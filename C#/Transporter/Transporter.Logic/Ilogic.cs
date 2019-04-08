@@ -15,5 +15,22 @@ namespace Transporter.Logic
     /// </summary>
     internal interface ILogic
     {
+        /// <summary>
+        /// Retrives the customer table.
+        /// </summary>
+        /// <returns>All elements in a tring array.</returns>
+        string[] RetriveCustomers();
+
+        /// <summary>
+        /// Retrives the pakage table.
+        /// </summary>
+        /// <returns>All elements in a tring array.</returns>
+        string[] RetrivePakages();
+
+        /// <summary>
+        /// Retrives the driver table.
+        /// </summary>
+        /// <returns>All elements in a tring array.</returns>
+        string[] RetriveDrivers();
     }
 }
