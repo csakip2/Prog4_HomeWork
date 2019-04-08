@@ -62,5 +62,19 @@ namespace Transporter.Logic
         /// <param name="licencePlate">The new drivers licence plate number.</param>
         /// <param name="phoneNum">The new drivers phone number.</param>
         void AddDriver(string name, string adress, DateTime birthDate, string licencePlate, string phoneNum);
+
+        /// <summary>
+        /// Changes the driver of a pakage.
+        /// </summary>
+        /// <param name="id">The pakage ID.</param>
+        /// <param name="newDriver_id">The id of the new driver.</param>
+        void ChangePakageDriver(int id, int newDriver_id);
+
+        /// <summary>
+        /// Changes a customers adress.
+        /// </summary>
+        /// <param name="id">The id of the customer.</param>
+        /// <param name="newAdress">The new adress of the customer.</param>
+        void ChangeCustomerAdress(int id, string newAdress);
     }
 }
