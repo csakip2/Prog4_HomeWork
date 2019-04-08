@@ -16,9 +16,16 @@ namespace Transporter.Repository
     /// </summary>
     internal class PakageRepository : IPakageRepository
     {
+        TransporterDatabaseEntities tde = new TransporterDatabaseEntities();
+        /// <summary>
+        /// Changes the pakage's driver.
+        /// </summary>
+        /// <param name="id">Id of the pakage.</param>
+        /// <param name="newDriverId">Id of the new driver.</param>
         public void ChangeDriver(int id, int newDriverId)
         {
-            throw new NotImplementedException();
+            this.tde.PAKAGE.Where(x => x.PAKAGE_ID.Equals(newDriverId)).Single().PDRIVER_ID = newDriverId;
+            this.tde.SaveChanges();
         }
 
         public DRIVER GetDriver(int id)
