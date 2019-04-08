@@ -51,9 +51,13 @@ namespace Transporter.Repository
             this.tde.SaveChanges();
         }
 
+        /// <summary>
+        /// Returns the driver table.
+        /// </summary>
+        /// <returns>The whole table.</returns>
         public IQueryable<DRIVER> GetTable()
         {
-            throw new NotImplementedException();
+            return this.tde.DRIVER.AsQueryable();
         }
 
         public void Insert(DRIVER entity)
