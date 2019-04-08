@@ -40,9 +40,15 @@ namespace Transporter.Repository
             this.tde.SaveChanges();
         }
 
+        /// <summary>
+        /// Changes the phone number of the driver.
+        /// </summary>
+        /// <param name="id">The drivers id.</param>
+        /// <param name="newPhoneNum">The new phone number.</param>
         public void ChangePhoneNum(int id, string newPhoneNum)
         {
-            throw new NotImplementedException();
+            this.tde.DRIVER.Where(x => x.DRIVER_ID.Equals(id)).Single().DPHONE_NUM = newPhoneNum;
+            this.tde.SaveChanges();
         }
 
         public IQueryable<DRIVER> GetTable()
