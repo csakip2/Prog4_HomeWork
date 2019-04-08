@@ -70,9 +70,14 @@ namespace Transporter.Repository
             this.tde.SaveChanges();
         }
 
+        /// <summary>
+        /// Removes a driver from the table.
+        /// </summary>
+        /// <param name="entity">The driver to remove.</param>
         public void Remove(DRIVER entity)
         {
-            throw new NotImplementedException();
+            this.tde.DRIVER.Remove(entity);
+            this.tde.SaveChanges();
         }
     }
 }
