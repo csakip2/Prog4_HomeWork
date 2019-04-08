@@ -16,7 +16,8 @@ namespace Transporter.Repository
     /// </summary>
     internal class PakageRepository : IPakageRepository
     {
-        TransporterDatabaseEntities tde = new TransporterDatabaseEntities();
+        private TransporterDatabaseEntities tde = new TransporterDatabaseEntities();
+
         /// <summary>
         /// Changes the pakage's driver.
         /// </summary>
@@ -28,9 +29,14 @@ namespace Transporter.Repository
             this.tde.SaveChanges();
         }
 
+        /// <summary>
+        /// Returns the driver of the pakage.
+        /// </summary>
+        /// <param name="id">The id of the pakage.</param>
+        /// <returns>The driver as a driver entity.</returns>
         public DRIVER GetDriver(int id)
         {
-            throw new NotImplementedException();
+            return this.tde.DRIVER.Where(x => x.DRIVER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single())).Single();
         }
 
         public string[] GetRoute(int id)
