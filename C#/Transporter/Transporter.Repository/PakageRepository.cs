@@ -39,9 +39,25 @@ namespace Transporter.Repository
             return this.tde.DRIVER.Where(x => x.DRIVER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single())).Single();
         }
 
+        /// <summary>
+        /// Returns the route of the pakage.
+        /// </summary>
+        /// <param name="id">Id of the pakage.</param>
+        /// <returns>A string array in "[0]from, [1](through driver), [2]to" form.</returns>
         public string[] GetRoute(int id)
         {
-            throw new NotImplementedException();
+            string[] route = new string[3];
+
+            route[0] = this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single().PSENDER_ID)).Single().CUSTOMER_ID.ToString()
+               + " " + this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single().PSENDER_ID)).Single().CNAME.ToString();
+
+            route[1] = this.GetDriver(id).DLICENCE_PLATE
+               + " " + this.GetDriver(id).DNAME;
+
+            route[2] = this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single().PRECEIVER_ID)).Single().CUSTOMER_ID.ToString()
+               + " " + this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single().PRECEIVER_ID)).Single().CNAME.ToString();
+
+            return route;
         }
 
         public IQueryable<PAKAGE> GetTable()
