@@ -50,10 +50,12 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="CustomerRepository.cs" />
+    <Compile Include="DriverRepository.cs" />
     <Compile Include="Interfaces\ICustomerRepository.cs" />
     <Compile Include="Interfaces\IDriverRepository.cs" />
     <Compile Include="Interfaces\IPakageRepository.cs" />
     <Compile Include="Interfaces\IRepository.cs" />
+    <Compile Include="PakageRepository.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
