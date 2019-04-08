@@ -16,7 +16,7 @@ namespace Transporter.Repository
     /// </summary>
     internal class CustomerRepository : ICustomerRepository
     {
-        private readonly TransporterDatabaseEntities tde = new TransporterDatabaseEntities();
+        private TransporterDatabaseEntities tde = new TransporterDatabaseEntities();
 
         /// <summary>
         /// Changes the customers adress.
@@ -25,8 +25,7 @@ namespace Transporter.Repository
         /// <param name="newAdress">The customers new adress.</param>
         public void ChangeAdress(int id, string newAdress)
         {
-            CUSTOMER customer = this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID == id).Single();
-            customer.CADRESS = newAdress;
+            this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID == id).Single().CADRESS = newAdress;
             this.tde.SaveChanges();
         }
 
@@ -37,8 +36,7 @@ namespace Transporter.Repository
         /// <param name="newEmail">The customers new e-mail adress.</param>
         public void ChangeEmail(int id, string newEmail)
         {
-            CUSTOMER customer = this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID == id).Single();
-            customer.CE_MAIL = newEmail;
+            this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID == id).Single().CE_MAIL = newEmail;
             this.tde.SaveChanges();
         }
 
@@ -49,8 +47,7 @@ namespace Transporter.Repository
         /// <param name="newPhoneNum">The customers new phone number.</param>
         public void ChangePhoneNum(int id, string newPhoneNum)
         {
-            CUSTOMER customer = this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID == id).Single();
-            customer.CPHONE_NUM = newPhoneNum;
+            this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID == id).Single().CPHONE_NUM = newPhoneNum;
             this.tde.SaveChanges();
         }
 
