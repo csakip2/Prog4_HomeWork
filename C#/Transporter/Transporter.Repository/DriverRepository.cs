@@ -60,9 +60,14 @@ namespace Transporter.Repository
             return this.tde.DRIVER.AsQueryable();
         }
 
+        /// <summary>
+        /// Inserts a new driver into the table.
+        /// </summary>
+        /// <param name="entity">The new driver.</param>
         public void Insert(DRIVER entity)
         {
-            throw new NotImplementedException();
+            this.tde.DRIVER.Add(entity);
+            this.tde.SaveChanges();
         }
 
         public void Remove(DRIVER entity)
