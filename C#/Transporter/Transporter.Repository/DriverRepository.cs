@@ -29,9 +29,15 @@ namespace Transporter.Repository
             this.tde.SaveChanges();
         }
 
+        /// <summary>
+        /// Changes the driver's licence plate number.
+        /// </summary>
+        /// <param name="id">The id of the driver.</param>
+        /// <param name="newLicPlate">The new licence plate number.</param>
         public void ChangeLicPlate(int id, string newLicPlate)
         {
-            throw new NotImplementedException();
+            this.tde.DRIVER.Where(x => x.DRIVER_ID.Equals(id)).Single().DLICENCE_PLATE = newLicPlate;
+            this.tde.SaveChanges();
         }
 
         public void ChangePhoneNum(int id, string newPhoneNum)
