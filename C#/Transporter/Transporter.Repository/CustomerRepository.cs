@@ -57,9 +57,7 @@ namespace Transporter.Repository
         /// <returns>Everything from the Customer table.</returns>
         public IQueryable<CUSTOMER> GetTable()
         {
-            IQueryable<CUSTOMER> table = this.tde.CUSTOMER;
-
-            return table;
+            return this.tde.CUSTOMER.AsQueryable();
         }
 
         /// <summary>
