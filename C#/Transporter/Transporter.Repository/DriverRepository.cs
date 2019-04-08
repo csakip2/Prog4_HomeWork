@@ -14,11 +14,19 @@ namespace Transporter.Repository
     /// <summary>
     /// Repository for the driver table.
     /// </summary>
-    class DriverRepository : IDriverRepository
+    internal class DriverRepository : IDriverRepository
     {
+        private TransporterDatabaseEntities tde = new TransporterDatabaseEntities();
+
+        /// <summary>
+        /// Changes the adress of the driver.
+        /// </summary>
+        /// <param name="id">The id of the driver.</param>
+        /// <param name="newAdress">The new adress of the driver.</param>
         public void ChangeAdress(int id, string newAdress)
         {
-            throw new NotImplementedException();
+            this.tde.DRIVER.Where(x => x.DRIVER_ID.Equals(id)).Single().DADRESS = newAdress;
+            this.tde.SaveChanges();
         }
 
         public void ChangeLicPlate(int id, string newLicPlate)
