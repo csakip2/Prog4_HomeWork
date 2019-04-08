@@ -69,9 +69,14 @@ namespace Transporter.Repository
             return this.tde.PAKAGE.AsQueryable();
         }
 
+        /// <summary>
+        /// Inserts a new pakage.
+        /// </summary>
+        /// <param name="entity">The new pakage.</param>
         public void Insert(PAKAGE entity)
         {
-            throw new NotImplementedException();
+            this.tde.PAKAGE.Add(entity);
+            this.tde.SaveChanges();
         }
 
         public void Remove(PAKAGE entity)
