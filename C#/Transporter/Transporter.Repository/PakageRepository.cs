@@ -79,9 +79,14 @@ namespace Transporter.Repository
             this.tde.SaveChanges();
         }
 
+        /// <summary>
+        /// Removes a pakage from the table.
+        /// </summary>
+        /// <param name="entity">The pakage to remove.</param>
         public void Remove(PAKAGE entity)
         {
-            throw new NotImplementedException();
+            this.tde.PAKAGE.Remove(entity);
+            this.tde.SaveChanges();
         }
     }
 }
