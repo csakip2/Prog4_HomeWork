@@ -27,8 +27,8 @@ namespace Transporter.Program
                 Console.WriteLine("Add new customer: 4");
                 Console.WriteLine("Add new pakage: 5");
                 Console.WriteLine("Add new driver: 6");
-                Console.WriteLine("Change customer: 7");
-                Console.WriteLine("Change pakage: 8");
+                Console.WriteLine("Change customer adress: 7");
+                Console.WriteLine("Change pakage driver: 8");
                 Console.WriteLine("Change driver: 9");
                 Console.WriteLine("Delete customer: 10");
                 Console.WriteLine("Delete pakage: 11");
