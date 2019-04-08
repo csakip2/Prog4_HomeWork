@@ -60,9 +60,13 @@ namespace Transporter.Repository
             return route;
         }
 
+        /// <summary>
+        /// Returns the pakage table.
+        /// </summary>
+        /// <returns>The whole table.</returns>
         public IQueryable<PAKAGE> GetTable()
         {
-            throw new NotImplementedException();
+            return this.tde.PAKAGE.AsQueryable();
         }
 
         public void Insert(PAKAGE entity)
