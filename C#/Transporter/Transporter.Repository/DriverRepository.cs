@@ -14,7 +14,7 @@ namespace Transporter.Repository
     /// <summary>
     /// Repository for the driver table.
     /// </summary>
-    internal class DriverRepository : IDriverRepository
+    public class DriverRepository : IDriverRepository
     {
         private TransporterDatabaseEntities tde = new TransporterDatabaseEntities();
 

@@ -14,7 +14,7 @@ namespace Transporter.Repository
     /// <summary>
     /// Repository for Pakages table.
     /// </summary>
-    internal class PakageRepository : IPakageRepository
+    public class PakageRepository : IPakageRepository
     {
         private TransporterDatabaseEntities tde = new TransporterDatabaseEntities();
 

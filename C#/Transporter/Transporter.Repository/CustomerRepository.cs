@@ -14,7 +14,7 @@ namespace Transporter.Repository
     /// <summary>
     /// Repository for Customer table.
     /// </summary>
-    internal class CustomerRepository : ICustomerRepository
+    public class CustomerRepository : ICustomerRepository
     {
         private TransporterDatabaseEntities tde = new TransporterDatabaseEntities();
 
