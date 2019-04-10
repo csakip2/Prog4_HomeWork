@@ -52,6 +52,16 @@ namespace Transporter.Repository
         }
 
         /// <summary>
+        /// Returns the ID of the customer from its name and adress.
+        /// </summary>
+        /// <param name="entity">The customers name and adress as a customer entity.</param>
+        /// <returns>The ID of the customer.</returns>
+        public int GetId(CUSTOMER entity)
+        {
+            return (int)this.tde.CUSTOMER.Where(x => x.CNAME.Equals(entity.CNAME) && x.CADRESS.Equals(entity.CADRESS)).Single().CUSTOMER_ID;
+        }
+
+        /// <summary>
         /// Retturns all customers as IQueryable.
         /// </summary>
         /// <returns>Everything from the Customer table.</returns>
