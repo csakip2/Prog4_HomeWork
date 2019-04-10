@@ -30,5 +30,12 @@ namespace Transporter.Repository
         /// </summary>
         /// <param name="entity">The entity to remove.</param>
         void Remove(TEntity entity);
+
+        /// <summary>
+        /// Gets the id of an entity from a table.
+        /// </summary>
+        /// <param name="entity">The entity of a table.</param>
+        /// <returns>The id of the entity.</returns>
+        int GetId(TEntity entity);
     }
 }
