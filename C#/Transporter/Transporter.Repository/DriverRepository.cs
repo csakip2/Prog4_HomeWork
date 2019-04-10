@@ -52,6 +52,16 @@ namespace Transporter.Repository
         }
 
         /// <summary>
+        /// Returns the id of a driver from its name and adress.
+        /// </summary>
+        /// <param name="entity">The drivers name and adress as a driver entity.</param>
+        /// <returns>The drivers id.</returns>
+        public int GetId(DRIVER entity)
+        {
+            return (int)this.tde.DRIVER.Where(x => x.DNAME.Equals(entity.DNAME) && x.DADRESS.Equals(entity.DADRESS)).Single().DRIVER_ID;
+        }
+
+        /// <summary>
         /// Returns the driver table.
         /// </summary>
         /// <returns>The whole table.</returns>
