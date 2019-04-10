@@ -83,10 +83,11 @@ namespace Transporter.Repository
         /// <summary>
         /// Removes a customer from the table.
         /// </summary>
-        /// <param name="entity">The customer to remove as an entyty.</param>
+        /// <param name="entity">The name and adress of the customer to remove as an entyty.</param>
         public void Remove(CUSTOMER entity)
         {
-            this.tde.CUSTOMER.Remove(entity);
+            CUSTOMER toRemove = this.tde.CUSTOMER.Where(x => x.CNAME.Equals(entity.CNAME) && x.CADRESS.Equals(entity.CADRESS)).Single();
+            this.tde.CUSTOMER.Remove(toRemove);
             this.tde.SaveChanges();
         }
     }
