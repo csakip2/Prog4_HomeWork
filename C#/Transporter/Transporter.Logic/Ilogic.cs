@@ -1,4 +1,4 @@
-﻿// <copyright file="Ilogic.cs" company="PlaceholderCompany">
+﻿// <copyright file="ILogic.cs" company="PlaceholderCompany">
 // Copyright (c) PlaceholderCompany. All rights reserved.
 // </copyright>
 
@@ -73,8 +73,63 @@ namespace Transporter.Logic
         /// <summary>
         /// Changes a customers adress.
         /// </summary>
-        /// <param name="id">The id of the customer.</param>
+        /// <param name="name">The name of the customer.</param>
+        /// <param name="oldAdress">The current adress of the customer.</param>
         /// <param name="newAdress">The new adress of the customer.</param>
-        void ChangeCustomerAdress(int id, string newAdress);
+        void ChangeCustomerAdress(string name, string oldAdress, string newAdress);
+
+        /// <summary>
+        /// Changes the customers phone number.
+        /// </summary>
+        /// <param name="name">The customers name.</param>
+        /// <param name="adress">The customers adress.</param>
+        /// <param name="newPhoneNum">The customers new phone number.</param>
+        void ChangeCustomerPhoneNum(string name, string adress, string newPhoneNum);
+
+        /// <summary>
+        /// Changes the customers e-mail adress.
+        /// </summary>
+        /// <param name="name">The customers name.</param>
+        /// <param name="adress">The customers adress.</param>
+        /// <param name="newEmail">The customers new e-mail adress.</param>
+        void ChangeCustomerEmail(string name, string adress, string newEmail);
+
+        /// <summary>
+        /// Changes the drivers adress.
+        /// </summary>
+        /// <param name="name">The drivers name.</param>
+        /// <param name="oldAdress">The drivers old adress.</param>
+        /// <param name="newAdress">The drivers new adress.</param>
+        void ChangeDriverAdress(string name, string oldAdress, string newAdress);
+
+        /// <summary>
+        /// Changes the drivers licence plate number.
+        /// </summary>
+        /// <param name="name">The name of the driver.</param>
+        /// <param name="adress">The adress of the driver.</param>
+        /// <param name="newLicPlate">The drivers new licence plate number.</param>
+        void ChangeDriverLicPlate(string name, string adress, string newLicPlate);
+
+        /// <summary>
+        /// Changes the drivers phone number.
+        /// </summary>
+        /// <param name="name">The drivers name.</param>
+        /// <param name="adress">The drivers adress.</param>
+        /// <param name="newPhoneNum">The drivers new phone number.</param>
+        void ChangeDriverPhoneNum(string name, string adress, string newPhoneNum);
+
+        /// <summary>
+        /// Returns the pakages drivers name and licence plate number ([0]driverName, [1]licencePlateNumber).
+        /// </summary>
+        /// <param name="id">The pakages id.</param>
+        /// <returns>The drivers name and licence plate number ([0]driverName, [1]licencePlateNumber).</returns>
+        string[] GetPakageDriver(int id);
+
+        /// <summary>
+        /// Returns the route of the pakage.
+        /// </summary>
+        /// <param name="id">The pakages id.</param>
+        /// <returns>The route of the pakage.</returns>
+        string[] GetPakageRoute(int id);
     }
 }
