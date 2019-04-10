@@ -9,14 +9,27 @@ namespace Transporter.Logic
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Transporter.Repository;
 
     /// <summary>
     /// Logic class. Handels repository methods.
     /// </summary>
     internal class Logic : ILogic
     {
+        private CustomerRepository crep = new CustomerRepository();
+        private PakageRepository prep = new PakageRepository();
+        private DriverRepository drep = new DriverRepository();
+
+        /// <summary>
+        /// Adds a new customer to the table.
+        /// </summary>
+        /// <param name="name">The new customers name.</param>
+        /// <param name="adress">The new customers adress.</param>
+        /// <param name="phoneNum">The new customers phone number.</param>
+        /// <param name="e_mail">The new customers e-mail adress.</param>
         public void AddCustomer(string name, string adress, string phoneNum, string e_mail)
         {
+
             throw new NotImplementedException();
         }
 
