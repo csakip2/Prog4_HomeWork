@@ -19,6 +19,13 @@ namespace Transporter.Repository
         private TransporterDatabaseEntities tde = new TransporterDatabaseEntities();
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="CustomerRepository"/> class.
+        /// </summary>
+        public CustomerRepository()
+        {
+        }
+
+        /// <summary>
         /// Changes the customers adress.
         /// </summary>
         /// <param name="id">The customers id.</param>

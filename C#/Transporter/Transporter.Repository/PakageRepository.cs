@@ -19,6 +19,13 @@ namespace Transporter.Repository
         private TransporterDatabaseEntities tde = new TransporterDatabaseEntities();
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="PakageRepository"/> class.
+        /// </summary>
+        public PakageRepository()
+        {
+        }
+
+        /// <summary>
         /// Changes the pakage's driver.
         /// </summary>
         /// <param name="id">Id of the pakage.</param>
