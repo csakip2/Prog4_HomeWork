@@ -131,5 +131,25 @@ namespace Transporter.Logic
         /// <param name="id">The pakages id.</param>
         /// <returns>The route of the pakage.</returns>
         string[] GetPakageRoute(int id);
+
+        /// <summary>
+        /// Removes a customer from the table.
+        /// </summary>
+        /// <param name="name">The customers name.</param>
+        /// <param name="adress">The customers adress.</param>
+        void RemoveCustomer(string name, string adress);
+
+        /// <summary>
+        /// Removes a pakage from the table.
+        /// </summary>
+        /// <param name="id">The id of the pakage.</param>
+        void RemovePakage(int id);
+
+        /// <summary>
+        /// Removes a driver from the table.
+        /// </summary>
+        /// <param name="name">The drivers name.</param>
+        /// <param name="adress">The drivers adress.</param>
+        void RemoveDriver(string name, string adress);
     }
 }
