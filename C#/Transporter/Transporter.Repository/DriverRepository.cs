@@ -83,10 +83,11 @@ namespace Transporter.Repository
         /// <summary>
         /// Removes a driver from the table.
         /// </summary>
-        /// <param name="entity">The driver to remove.</param>
+        /// <param name="entity">The name and adress of the driver to remove as an entity.</param>
         public void Remove(DRIVER entity)
         {
-            this.tde.DRIVER.Remove(entity);
+            DRIVER toRemove = this.tde.DRIVER.Where(x => x.DNAME.Equals(entity.DNAME) && x.DADRESS.Equals(entity.DADRESS)).Single();
+            this.tde.DRIVER.Remove(toRemove);
             this.tde.SaveChanges();
         }
     }
