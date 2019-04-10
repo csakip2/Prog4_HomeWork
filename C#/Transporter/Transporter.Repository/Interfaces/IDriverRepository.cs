@@ -9,11 +9,12 @@ namespace Transporter.Repository
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
+    using Transporter.Data;
 
     /// <summary>
     /// Repository interface for driver specific methods.
     /// </summary>
-    internal interface IDriverRepository : IRepository<Data.DRIVER>
+    internal interface IDriverRepository : IRepository<DRIVER>
     {
         /// <summary>
         /// Changes the drivers adress.
@@ -35,5 +36,25 @@ namespace Transporter.Repository
         /// <param name="id">The id of the driver.</param>
         /// <param name="newLicPlate">The new licence plate.</param>
         void ChangeLicPlate(int id, string newLicPlate);
+
+        /// <summary>
+        /// Makes a driver entity for adding.
+        /// </summary>
+        /// <param name="id">The id of the driver.</param>
+        /// <param name="name">The new drivers name.</param>
+        /// <param name="adress">The new drivers adress.</param>
+        /// <param name="birthDate">The new drivers date of birth.</param>
+        /// <param name="licencePlate">The new drivers licence plate.</param>
+        /// <param name="phoneNum">The new drivers phone number.</param>
+        /// <returns>A driver entity.</returns>
+        DRIVER ToDriver(int id, string name, string adress, DateTime birthDate, string licencePlate, string phoneNum);
+
+        /// <summary>
+        /// Makes a driver entity for searching and removeing.
+        /// </summary>
+        /// <param name="name">The drivers name.</param>
+        /// <param name="adress">The drivers adress.</param>
+        /// <returns>A drivers enity.</returns>
+        DRIVER ToDriver(string name, string adress);
     }
 }
