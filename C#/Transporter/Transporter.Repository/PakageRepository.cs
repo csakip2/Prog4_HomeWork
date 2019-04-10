@@ -106,5 +106,45 @@ namespace Transporter.Repository
             this.tde.PAKAGE.Remove(toRemove);
             this.tde.SaveChanges();
         }
+
+        /// <summary>
+        /// Makes a pakage entity for adding.
+        /// </summary>
+        /// <param name="id">The id of the pakage.</param>
+        /// <param name="senderName">The sender name.</param>
+        /// <param name="senderAdress">The sender adress.</param>
+        /// <param name="receiverName">The reciver name.</param>
+        /// <param name="receiverAdress">The reciver adress.</param>
+        /// <param name="weight">The pakages weight.</param>
+        /// <param name="size">The pakages size.</param>
+        /// <param name="driverId">The drivers id.</param>
+        /// <returns>A pakage entity.</returns>
+        public PAKAGE ToPakage(int id, string senderName, string senderAdress, string receiverName, string receiverAdress, int weight, string size, int driverId)
+        {
+            return new PAKAGE
+            {
+                PAKAGE_ID = id,
+                PSENDER_ID = new CustomerRepository().GetId(new CUSTOMER { CNAME = senderName, CADRESS = senderAdress }),
+                PRECEIVER_ID = new CustomerRepository().GetId(new CUSTOMER { CNAME = receiverName, CADRESS = receiverAdress }),
+                PWEIGHT = weight,
+                PSIZE = size,
+                PDRIVER_ID = driverId
+            };
+        }
+
+        /// <summary>
+        /// Returns a pakage entity for searching and removeing.
+        /// </summary>
+        /// <param name="senderId">The senders id.</param>
+        /// <param name="reciverId">The recivers id.</param>
+        /// <returns>A pakage entity.</returns>
+        public PAKAGE ToPakage(int senderId, int reciverId)
+        {
+            return new PAKAGE
+            {
+                PSENDER_ID = senderId,
+                PRECEIVER_ID = reciverId
+            };
+        }
     }
 }
