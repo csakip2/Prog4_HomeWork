@@ -113,18 +113,26 @@ namespace Transporter.Repository
         }
 
         /// <summary>
-        /// Inserts a new driver into the table.
+        /// Inserts an Entity into the table.
         /// </summary>
-        /// <param name="entity">The new driver.</param>
-        public void Insert(DRIVER entity)
-        {
-            this.tde.DRIVER.Add(entity);
-            this.tde.SaveChanges();
-        }
-
+        /// <param name="id">The drivers id.</param>
+        /// <param name="name">The drivers name.</param>
+        /// <param name="adress">The drivers adress.</param>
+        /// <param name="birthDate">The drivers date of birth.</param>
+        /// <param name="licencePlate">The drivers licence plate number.</param>
+        /// <param name="phoneNum">The drivers phone number.</param>
         public void Insert(int id, string name, string adress, DateTime birthDate, string licencePlate, string phoneNum)
         {
-            throw new NotImplementedException();
+            this.tde.DRIVER.Add(new DRIVER
+            {
+                DRIVER_ID = id,
+                DNAME = name,
+                DADRESS = adress,
+                DBIRTH_DATE = birthDate,
+                DLICENCE_PLATE = licencePlate,
+                DPHONE_NUM = phoneNum
+            });
+            this.tde.SaveChanges();
         }
 
         /// <summary>
