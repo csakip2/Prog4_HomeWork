@@ -61,11 +61,17 @@ namespace Transporter.Repository
         /// <summary>
         /// Returns the ID of the customer from its name and adress.
         /// </summary>
-        /// <param name="entity">The customers name and adress as a customer entity.</param>
+        /// <param name="param1">The customers name.</param>
+        /// <param name="param2">The customers adress.</param>
         /// <returns>The ID of the customer.</returns>
-        public int GetId(CUSTOMER entity)
+        public int GetId(object param1, object param2)
         {
-            return (int)this.tde.CUSTOMER.Where(x => x.CNAME.Equals(entity.CNAME) && x.CADRESS.Equals(entity.CADRESS)).Single().CUSTOMER_ID;
+            return (int)this.tde.CUSTOMER.Where(x => x.CNAME.Equals(param1.ToString()) && x.CADRESS.Equals(param2.ToString())).Single().CUSTOMER_ID;
+        }
+
+        public int GetLastId()
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -87,6 +93,11 @@ namespace Transporter.Repository
             this.tde.SaveChanges();
         }
 
+        public void Insert(int id, string name, string andress, string phoneNum, string eMail)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Removes a customer from the table.
         /// </summary>
@@ -96,6 +107,11 @@ namespace Transporter.Repository
             CUSTOMER toRemove = this.tde.CUSTOMER.Where(x => x.CNAME.Equals(entity.CNAME) && x.CADRESS.Equals(entity.CADRESS)).Single();
             this.tde.CUSTOMER.Remove(toRemove);
             this.tde.SaveChanges();
+        }
+
+        public void Remove(int id)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -132,6 +148,11 @@ namespace Transporter.Repository
                 CNAME = name,
                 CADRESS = adress
             };
+        }
+
+        List<string[]> IRepository<CUSTOMER>.GetTable()
+        {
+            throw new NotImplementedException();
         }
     }
 }
