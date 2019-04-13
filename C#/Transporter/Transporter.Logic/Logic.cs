@@ -114,7 +114,7 @@ namespace Transporter.Logic
         /// <param name="newAdress">The drivers new adress.</param>
         public void ChangeDriverAdress(string name, string oldAdress, string newAdress)
         {
-            throw new NotImplementedException();
+            this.drep.ChangeAdress(this.drep.GetId(name, oldAdress), newAdress);
         }
 
         /// <summary>
@@ -125,7 +125,7 @@ namespace Transporter.Logic
         /// <param name="newLicPlate">The drivers new licence plate number.</param>
         public void ChangeDriverLicPlate(string name, string adress, string newLicPlate)
         {
-            throw new NotImplementedException();
+            this.drep.ChangeLicPlate(this.drep.GetId(name, adress), newLicPlate);
         }
 
         /// <summary>
@@ -136,7 +136,7 @@ namespace Transporter.Logic
         /// <param name="newPhoneNum">The drivers new phone number.</param>
         public void ChangeDriverPhoneNum(string name, string adress, string newPhoneNum)
         {
-            throw new NotImplementedException();
+            this.drep.ChangePhoneNum(this.drep.GetId(name, adress), newPhoneNum);
         }
 
         /// <summary>
