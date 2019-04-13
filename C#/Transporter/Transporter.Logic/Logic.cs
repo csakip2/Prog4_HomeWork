@@ -39,7 +39,8 @@ namespace Transporter.Logic
         /// <param name="e_mail">The new customers e-mail adress.</param>
         public void AddCustomer(string name, string adress, string phoneNum, string e_mail)
         {
-            throw new NotImplementedException();
+            int id = this.crep.GetLastId() + 1;
+            this.crep.Insert(id, name, adress, phoneNum, e_mail);
         }
 
         /// <summary>
