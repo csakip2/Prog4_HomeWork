@@ -36,14 +36,10 @@ namespace Transporter.Repository
             this.tde.SaveChanges();
         }
 
-        /// <summary>
-        /// Returns the driver of the pakage.
-        /// </summary>
-        /// <param name="id">The id of the pakage.</param>
-        /// <returns>The driver as a driver entity.</returns>
-        public DRIVER GetDriver(int id)
+
+        public string[] GetDriver(int id)
         {
-            return this.tde.DRIVER.Where(x => x.DRIVER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single())).Single();
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -54,6 +50,16 @@ namespace Transporter.Repository
         public int GetId(PAKAGE entity)
         {
             return (int)this.tde.PAKAGE.Where(x => x.PSENDER_ID.Equals(entity.PSENDER_ID) && x.PRECEIVER_ID.Equals(entity.PRECEIVER_ID)).Single().PAKAGE_ID;
+        }
+
+        public int GetId(object param1, object param2)
+        {
+            throw new NotImplementedException();
+        }
+
+        public int GetLastId()
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -100,7 +106,6 @@ namespace Transporter.Repository
             }
 
             return table;
-
         }
 
         /// <summary>
@@ -111,6 +116,11 @@ namespace Transporter.Repository
         {
             this.tde.PAKAGE.Add(entity);
             this.tde.SaveChanges();
+        }
+
+        public void Insert(int id, int senderId, string receiverId, int weight, string size, int driverId)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -124,44 +134,19 @@ namespace Transporter.Repository
             this.tde.SaveChanges();
         }
 
-        /// <summary>
-        /// Makes a pakage entity for adding.
-        /// </summary>
-        /// <param name="id">The id of the pakage.</param>
-        /// <param name="senderName">The sender name.</param>
-        /// <param name="senderAdress">The sender adress.</param>
-        /// <param name="receiverName">The reciver name.</param>
-        /// <param name="receiverAdress">The reciver adress.</param>
-        /// <param name="weight">The pakages weight.</param>
-        /// <param name="size">The pakages size.</param>
-        /// <param name="driverId">The drivers id.</param>
-        /// <returns>A pakage entity.</returns>
-        public PAKAGE ToPakage(int id, string senderName, string senderAdress, string receiverName, string receiverAdress, int weight, string size, int driverId)
+        public void Remove(int id)
         {
-            return new PAKAGE
-            {
-                PAKAGE_ID = id,
-                PSENDER_ID = new CustomerRepository().GetId(new CUSTOMER { CNAME = senderName, CADRESS = senderAdress }),
-                PRECEIVER_ID = new CustomerRepository().GetId(new CUSTOMER { CNAME = receiverName, CADRESS = receiverAdress }),
-                PWEIGHT = weight,
-                PSIZE = size,
-                PDRIVER_ID = driverId
-            };
+            throw new NotImplementedException();
         }
 
         /// <summary>
-        /// Returns a pakage entity for searching and removeing.
+        /// Returns the driver of the pakage.
         /// </summary>
-        /// <param name="senderId">The senders id.</param>
-        /// <param name="reciverId">The recivers id.</param>
-        /// <returns>A pakage entity.</returns>
-        public PAKAGE ToPakage(int senderId, int reciverId)
+        /// <param name="id">The id of the pakage.</param>
+        /// <returns>The driver as a driver entity.</returns>
+        private DRIVER GetDriver(int id)
         {
-            return new PAKAGE
-            {
-                PSENDER_ID = senderId,
-                PRECEIVER_ID = reciverId
-            };
+            return this.tde.DRIVER.Where(x => x.DRIVER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single())).Single();
         }
     }
 }
