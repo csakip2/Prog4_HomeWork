@@ -89,12 +89,27 @@ namespace Transporter.Repository
         }
 
         /// <summary>
-        /// Retturns all customers as IQueryable.
+        /// Retturns all customers in a list.
         /// </summary>
         /// <returns>Everything from the Customer table.</returns>
-        public IQueryable<CUSTOMER> GetTable()
+        public List<string[]> GetTable()
         {
-            return this.tde.CUSTOMER.AsQueryable();
+            List<string[]> table = new List<string[]>();
+
+            foreach (var item in this.tde.CUSTOMER)
+            {
+                string[] row = new string[5];
+
+                row[0] = item.CUSTOMER_ID.ToString();
+                row[1] = item.CNAME.ToString();
+                row[2] = item.CADRESS.ToString();
+                row[3] = item.CE_MAIL.ToString();
+                row[4] = item.CPHONE_NUM.ToString();
+
+                table.Add(row);
+            }
+
+            return table;
         }
 
         /// <summary>
@@ -162,11 +177,6 @@ namespace Transporter.Repository
                 CNAME = name,
                 CADRESS = adress
             };
-        }
-
-        List<string[]> IRepository<CUSTOMER>.GetTable()
-        {
-            throw new NotImplementedException();
         }
     }
 }
