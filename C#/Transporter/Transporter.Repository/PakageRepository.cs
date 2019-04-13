@@ -133,18 +133,26 @@ namespace Transporter.Repository
         }
 
         /// <summary>
-        /// Inserts a new pakage.
+        /// Inserts an Entity into the table.
         /// </summary>
-        /// <param name="entity">The new pakage.</param>
-        public void Insert(PAKAGE entity)
+        /// <param name="id">The pakages id.</param>
+        /// <param name="senderId">The senders id.</param>
+        /// <param name="receiverId">The recivers id.</param>
+        /// <param name="weight">The pakages weight.</param>
+        /// <param name="size">The pakages size.</param>
+        /// <param name="driverId">The drivers id.</param>
+        public void Insert(int id, int senderId, int receiverId, int weight, string size, int driverId)
         {
-            this.tde.PAKAGE.Add(entity);
+            this.tde.PAKAGE.Add(new PAKAGE
+            {
+                PAKAGE_ID = id,
+                PSENDER_ID = senderId,
+                PRECEIVER_ID = receiverId,
+                PWEIGHT = weight,
+                PSIZE = size,
+                PDRIVER_ID = driverId
+            });
             this.tde.SaveChanges();
-        }
-
-        public void Insert(int id, int senderId, string receiverId, int weight, string size, int driverId)
-        {
-            throw new NotImplementedException();
         }
 
         /// <summary>

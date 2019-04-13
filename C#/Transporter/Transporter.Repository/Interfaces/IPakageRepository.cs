@@ -46,6 +46,6 @@ namespace Transporter.Repository
         /// <param name="weight">The pakages weight.</param>
         /// <param name="size">The pakages size.</param>
         /// <param name="driverId">The drivers id.</param>
-        void Insert(int id, int senderId, string receiverId, int weight, string size, int driverId);
+        void Insert(int id, int senderId, int receiverId, int weight, string size, int driverId);
     }
 }
