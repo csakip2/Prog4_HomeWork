@@ -36,8 +36,7 @@ namespace Transporter.Repository
             this.tde.SaveChanges();
         }
 
-
-        public string[] GetDriver(int id)
+        public string[] GetDriverAsString(int id)
         {
             throw new NotImplementedException();
         }
@@ -74,8 +73,8 @@ namespace Transporter.Repository
             route[0] = this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single().PSENDER_ID)).Single().CUSTOMER_ID.ToString()
                + " " + this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single().PSENDER_ID)).Single().CNAME.ToString();
 
-            route[1] = this.GetDriver(id).DLICENCE_PLATE
-               + " " + this.GetDriver(id).DNAME;
+            route[1] = this.GetDriverAsDriver(id).DLICENCE_PLATE
+               + " " + this.GetDriverAsDriver(id).DNAME;
 
             route[2] = this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single().PRECEIVER_ID)).Single().CUSTOMER_ID.ToString()
                + " " + this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single().PRECEIVER_ID)).Single().CNAME.ToString();
@@ -140,11 +139,11 @@ namespace Transporter.Repository
         }
 
         /// <summary>
-        /// Returns the driver of the pakage.
+        /// Returns the driver of the pakage as a Driver object.
         /// </summary>
         /// <param name="id">The id of the pakage.</param>
         /// <returns>The driver as a driver entity.</returns>
-        private DRIVER GetDriver(int id)
+        private DRIVER GetDriverAsDriver(int id)
         {
             return this.tde.DRIVER.Where(x => x.DRIVER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single())).Single();
         }
