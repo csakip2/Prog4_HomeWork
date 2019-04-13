@@ -176,7 +176,7 @@ namespace Transporter.Logic
         /// <param name="adress">The customers adress.</param>
         public void RemoveCustomer(string name, string adress)
         {
-            throw new NotImplementedException();
+            this.crep.Remove(this.crep.GetId(name, adress));
         }
 
         /// <summary>
@@ -186,7 +186,7 @@ namespace Transporter.Logic
         /// <param name="adress">The drivers adress.</param>
         public void RemoveDriver(string name, string adress)
         {
-            throw new NotImplementedException();
+            this.drep.Remove(this.drep.GetId(name, adress));
         }
 
         /// <summary>
@@ -195,7 +195,7 @@ namespace Transporter.Logic
         /// <param name="id">The id of the pakage.</param>
         public void RemovePakage(int id)
         {
-            throw new NotImplementedException();
+            this.prep.Remove(id);
         }
 
         /// <summary>
