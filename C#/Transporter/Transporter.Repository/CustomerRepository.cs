@@ -69,9 +69,23 @@ namespace Transporter.Repository
             return (int)this.tde.CUSTOMER.Where(x => x.CNAME.Equals(param1.ToString()) && x.CADRESS.Equals(param2.ToString())).Single().CUSTOMER_ID;
         }
 
+        /// <summary>
+        /// Returns the last used id in the table.
+        /// </summary>
+        /// <returns>The last used id inn the table.</returns>
         public int GetLastId()
         {
-            throw new NotImplementedException();
+            int max = 0;
+            foreach (var item in this.tde.CUSTOMER)
+            {
+                int cur = (int)item.CUSTOMER_ID;
+                if (max < cur)
+                {
+                    max = cur;
+                }
+            }
+
+            return max;
         }
 
         /// <summary>
