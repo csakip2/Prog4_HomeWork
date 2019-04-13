@@ -97,5 +97,41 @@ namespace Transporter.Repository
             this.tde.CUSTOMER.Remove(toRemove);
             this.tde.SaveChanges();
         }
+
+        /// <summary>
+        /// Makes a customer entity for adding a customer.
+        /// </summary>
+        /// <param name="id">The id of the customer.</param>
+        /// <param name="name">Name of the new customer.</param>
+        /// <param name="adress">Adress of the new customer.</param>
+        /// <param name="phoneNum">The phone number of the new customer.</param>
+        /// <param name="e_mail">The e-mail adress of the new customer.</param>
+        /// <returns>A customer entity.</returns>
+        public CUSTOMER ToCustomer(int id, string name, string adress, string phoneNum, string e_mail)
+        {
+            return new CUSTOMER
+            {
+                CUSTOMER_ID = id,
+                CNAME = name,
+                CADRESS = adress,
+                CPHONE_NUM = phoneNum,
+                CE_MAIL = e_mail
+            };
+        }
+
+        /// <summary>
+        /// Makes a customer entity for searching and removeing.
+        /// </summary>
+        /// <param name="name">Name of the customer.</param>
+        /// <param name="adress">Adress of the customer.</param>
+        /// <returns>A customer entity</returns>
+        public CUSTOMER ToCustomer(string name, string adress)
+        {
+            return new CUSTOMER
+            {
+                CNAME = name,
+                CADRESS = adress
+            };
+        }
     }
 }
