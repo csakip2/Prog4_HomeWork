@@ -36,9 +36,24 @@ namespace Transporter.Repository
             this.tde.SaveChanges();
         }
 
-        public string[] GetDriverAsString(int id)
+        /// <summary>
+        /// Returns a pakages driver as a string array.
+        /// </summary>
+        /// <param name="id">The pakages id.</param>
+        /// <returns>The pakages driver.</returns>
+        public string[] GetDriver(int id)
         {
-            throw new NotImplementedException();
+            DRIVER driver = this.tde.DRIVER.Where(x => x.DRIVER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single())).Single();
+
+            return new string[]
+            {
+                driver.DRIVER_ID.ToString(),
+                driver.DNAME,
+                driver.DADRESS,
+                driver.DBIRTH_DATE.ToString(),
+                driver.DLICENCE_PLATE,
+                driver.DPHONE_NUM
+            };
         }
 
         /// <summary>
