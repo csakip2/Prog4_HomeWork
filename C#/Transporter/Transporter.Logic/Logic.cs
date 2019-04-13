@@ -156,7 +156,7 @@ namespace Transporter.Logic
         /// <returns>The drivers name and licence plate number ([0]driverName, [1]licencePlateNumber).</returns>
         public string[] GetPakageDriver(int id)
         {
-            throw new NotImplementedException();
+            return this.prep.GetDriver(id);
         }
 
         /// <summary>
