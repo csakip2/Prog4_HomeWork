@@ -144,42 +144,5 @@ namespace Transporter.Repository
             this.tde.DRIVER.Remove(this.tde.DRIVER.Where(x => x.DRIVER_ID.Equals(id)).Single());
             this.tde.SaveChanges();
         }
-
-        /// <summary>
-        /// Makes a driver entity for adding.
-        /// </summary>
-        /// <param name="id">The drivers id.</param>
-        /// <param name="name">The new drivers name.</param>
-        /// <param name="adress">The new drivers adress.</param>
-        /// <param name="birthDate">The new drivers date of birth.</param>
-        /// <param name="licencePlate">The new drivers licence plate.</param>
-        /// <param name="phoneNum">The new drivers phone number.</param>
-        /// <returns>A driver entity.</returns>
-        public DRIVER ToDriver(int id, string name, string adress, DateTime birthDate, string licencePlate, string phoneNum)
-        {
-            return new DRIVER
-            {
-                DNAME = name,
-                DADRESS = adress,
-                DBIRTH_DATE = birthDate,
-                DLICENCE_PLATE = licencePlate,
-                DPHONE_NUM = phoneNum
-            };
-        }
-
-        /// <summary>
-        /// Makes a driver entity for searching and removeing.
-        /// </summary>
-        /// <param name="name">The drivers name.</param>
-        /// <param name="adress">The drivers adress.</param>
-        /// <returns>A drivers enity.</returns>
-        public DRIVER ToDriver(string name, string adress)
-        {
-            return new DRIVER
-            {
-                DNAME = name,
-                DADRESS = adress
-            };
-        }
     }
 }
