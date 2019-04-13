@@ -158,17 +158,11 @@ namespace Transporter.Repository
         /// <summary>
         /// Removes a pakage from the table.
         /// </summary>
-        /// <param name="entity">The id of the pakage to remove as a pakage entity.</param>
-        public void Remove(PAKAGE entity)
-        {
-            PAKAGE toRemove = this.tde.PAKAGE.Where(x => x.PAKAGE_ID.Equals(entity.PAKAGE_ID)).Single();
-            this.tde.PAKAGE.Remove(toRemove);
-            this.tde.SaveChanges();
-        }
-
+        /// <param name="id">The id of the pakage.</param>
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            this.tde.PAKAGE.Remove(this.tde.PAKAGE.Where(x => x.PAKAGE_ID.Equals(id)).Single());
+            this.tde.SaveChanges();
         }
 
         /// <summary>
