@@ -81,9 +81,26 @@ namespace Transporter.Repository
         /// Returns the pakage table.
         /// </summary>
         /// <returns>The whole table.</returns>
-        public IQueryable<PAKAGE> GetTable()
+        public List<string[]> GetTable()
         {
-            return this.tde.PAKAGE.AsQueryable();
+            List<string[]> table = new List<string[]>();
+
+            foreach (var item in this.tde.PAKAGE)
+            {
+                string[] row = new string[6];
+
+                row[0] = item.PAKAGE_ID.ToString();
+                row[1] = item.PSIZE.ToString();
+                row[2] = item.PWEIGHT.ToString();
+                row[3] = item.PSENDER_ID.ToString();
+                row[4] = item.PRECEIVER_ID.ToString();
+                row[5] = item.PDRIVER_ID.ToString();
+
+                table.Add(row);
+            }
+
+            return table;
+
         }
 
         /// <summary>
