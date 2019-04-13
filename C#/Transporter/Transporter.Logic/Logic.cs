@@ -166,7 +166,7 @@ namespace Transporter.Logic
         /// <returns>The route of the pakage.</returns>
         public string[] GetPakageRoute(int id)
         {
-            throw new NotImplementedException();
+            return this.prep.GetRoute(id);
         }
 
         /// <summary>
