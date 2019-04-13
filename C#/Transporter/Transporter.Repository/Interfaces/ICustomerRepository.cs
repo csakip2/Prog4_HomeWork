@@ -46,13 +46,5 @@ namespace Transporter.Repository
         /// <param name="phoneNum">The customers phone number.</param>
         /// <param name="eMail">The customers e-mail adress.</param>
         void Insert(int id, string name, string andress, string phoneNum, string eMail);
-
-        /// <summary>
-        /// Makes a customer entity for searching and removeing.
-        /// </summary>
-        /// <param name="name">Name of the customer.</param>
-        /// <param name="adress">Adress of the customer.</param>
-        /// <returns>A customer entity</returns>
-        CUSTOMER ToCustomer(string name, string adress);
     }
 }
