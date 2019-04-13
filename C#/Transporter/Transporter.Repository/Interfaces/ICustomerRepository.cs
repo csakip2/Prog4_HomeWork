@@ -38,7 +38,6 @@ namespace Transporter.Repository
         void ChangeEmail(int id, string newEmail);
 
         /// <summary>
-<<<<<<< HEAD
         /// Inserts an Entity into the table.
         /// </summary>
         /// <param name="id">The customers id.</param>
@@ -48,17 +47,6 @@ namespace Transporter.Repository
         /// <param name="eMail">The customers e-mail adress.</param>
         void Insert(int id, string name, string andress, string phoneNum, string eMail);
 
-=======
-        /// Makes a customer entity for adding a customer.
-        /// </summary>
-        /// <param name="id">The id of the customer.</param>
-        /// <param name="name">Name of the new customer.</param>
-        /// <param name="adress">Adress of the new customer.</param>
-        /// <param name="phoneNum">The phone number of the new customer.</param>
-        /// <param name="e_mail">The e-mail adress of the new customer.</param>
-        /// <returns>A customer entity.</returns>
-        CUSTOMER ToCustomer(int id, string name, string adress, string phoneNum, string e_mail);
-
         /// <summary>
         /// Makes a customer entity for searching and removeing.
         /// </summary>
@@ -66,6 +54,5 @@ namespace Transporter.Repository
         /// <param name="adress">Adress of the customer.</param>
         /// <returns>A customer entity</returns>
         CUSTOMER ToCustomer(string name, string adress);
->>>>>>> 8bcad6facdfd970043b969a09e216289604abee9
     }
 }
