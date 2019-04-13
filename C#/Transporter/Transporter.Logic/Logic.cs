@@ -16,9 +16,19 @@ namespace Transporter.Logic
     /// </summary>
     internal class Logic : ILogic
     {
-        private CustomerRepository crep = new CustomerRepository();
-        private PakageRepository prep = new PakageRepository();
-        private DriverRepository drep = new DriverRepository();
+        private CustomerRepository crep;
+        private PakageRepository prep;
+        private DriverRepository drep;
+
+        /// <summary>
+        /// Initializes a new instance of the <see cref="Logic"/> class.
+        /// </summary>
+        public Logic()
+        {
+            this.crep = new CustomerRepository();
+            this.prep = new PakageRepository();
+            this.drep = new DriverRepository();
+        }
 
         /// <summary>
         /// Adds a new customer to the table.
