@@ -33,5 +33,11 @@ namespace Transporter.Repository
         /// <param name="param2">Parameter2 (adress, reciverid) for geting the id.</param>
         /// <returns>The id of the entity.</returns>
         int GetId(object param1, object param2);
+
+        /// <summary>
+        /// Gets the last used id in the table.
+        /// </summary>
+        /// <returns>The last used id.</returns>
+        int GetLastId();
     }
 }
