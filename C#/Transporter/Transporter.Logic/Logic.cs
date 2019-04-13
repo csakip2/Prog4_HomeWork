@@ -53,7 +53,8 @@ namespace Transporter.Logic
         /// <param name="phoneNum">The new drivers phone number.</param>
         public void AddDriver(string name, string adress, DateTime birthDate, string licencePlate, string phoneNum)
         {
-            throw new NotImplementedException();
+            int id = this.drep.GetLastId() + 1;
+            this.drep.Insert(id, name, adress, birthDate, licencePlate, phoneNum);
         }
 
         /// <summary>
