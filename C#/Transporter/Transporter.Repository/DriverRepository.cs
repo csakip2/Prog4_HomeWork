@@ -72,9 +72,24 @@ namespace Transporter.Repository
         /// Returns the driver table.
         /// </summary>
         /// <returns>The whole table.</returns>
-        public IQueryable<DRIVER> GetTable()
+        public List<string[]> GetTable()
         {
-            return this.tde.DRIVER.AsQueryable();
+            List<string[]> table = new List<string[]>();
+
+            foreach (var item in this.tde.DRIVER)
+            {
+                table.Add(new string[]
+                {
+                    item.DRIVER_ID.ToString(),
+                    item.DNAME,
+                    item.DADRESS,
+                    item.DBIRTH_DATE.ToString(),
+                    item.DPHONE_NUM,
+                    item.DLICENCE_PLATE
+                });
+            }
+
+            return table;
         }
 
         /// <summary>
