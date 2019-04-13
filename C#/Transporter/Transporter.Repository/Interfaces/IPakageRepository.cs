@@ -38,7 +38,6 @@ namespace Transporter.Repository
         string[] GetRoute(int id);
 
         /// <summary>
-<<<<<<< HEAD
         /// Inserts an Entity into the table.
         /// </summary>
         /// <param name="id">The pakages id.</param>
@@ -48,27 +47,5 @@ namespace Transporter.Repository
         /// <param name="size">The pakages size.</param>
         /// <param name="driverId">The drivers id.</param>
         void Insert(int id, int senderId, string receiverId, int weight, string size, int driverId);
-=======
-        /// Makes a pakage entity for adding.
-        /// </summary>
-        /// <param name="id">The id of the pakage.</param>
-        /// <param name="senderName">The sender name.</param>
-        /// <param name="senderAdress">The sender adress.</param>
-        /// <param name="receiverName">The reciver name.</param>
-        /// <param name="receiverAdress">The reciver adress.</param>
-        /// <param name="weight">The pakages weight.</param>
-        /// <param name="size">The pakages size.</param>
-        /// <param name="driverId">The drivers id.</param>
-        /// <returns>A pakage entity.</returns>
-        PAKAGE ToPakage(int id, string senderName, string senderAdress, string receiverName, string receiverAdress, int weight, string size, int driverId);
-
-        /// <summary>
-        /// Returns a pakage entity for searching and removeing.
-        /// </summary>
-        /// <param name="senderId">The senders id.</param>
-        /// <param name="reciverId">The recivers id.</param>
-        /// <returns>A pakage entity.</returns>
-        PAKAGE ToPakage(int senderId, int reciverId);
->>>>>>> 8bcad6facdfd970043b969a09e216289604abee9
     }
 }
