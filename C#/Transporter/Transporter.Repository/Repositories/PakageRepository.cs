@@ -47,12 +47,8 @@ namespace Transporter.Repository
 
             return new string[]
             {
-                driver.DRIVER_ID.ToString(),
                 driver.DNAME,
-                driver.DADRESS,
-                driver.DBIRTH_DATE.ToString(),
-                driver.DLICENCE_PLATE,
-                driver.DPHONE_NUM
+                driver.DLICENCE_PLATE
             };
         }
 
