@@ -68,7 +68,9 @@ namespace Transporter.Logic
         /// <param name="size">The new pakages size.</param>
         public void AddPakage(string senderName, string senderAdress, string receiverName, string receiverAdress, int weight, string size)
         {
-            throw new NotImplementedException();
+            int id = this.prep.GetLastId() + 1;
+            int driverId = new Random().Next(0, this.drep.GetLastId());
+            this.prep.Insert(id, this.crep.GetId(senderName, senderAdress), this.crep.GetId(receiverName, receiverAdress), weight, size, driverId);
         }
 
         /// <summary>
