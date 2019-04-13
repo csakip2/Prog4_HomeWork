@@ -146,7 +146,7 @@ namespace Transporter.Logic
         /// <param name="newDriver_id">The id of the new driver.</param>
         public void ChangePakageDriver(int id, int newDriver_id)
         {
-            throw new NotImplementedException();
+            this.prep.ChangeDriver(id, newDriver_id);
         }
 
         /// <summary>
