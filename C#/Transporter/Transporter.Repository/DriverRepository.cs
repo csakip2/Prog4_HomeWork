@@ -69,9 +69,23 @@ namespace Transporter.Repository
             return (int)this.tde.DRIVER.Where(x => x.DNAME.Equals(param1) && x.DADRESS.Equals(param2)).Single().DRIVER_ID;
         }
 
+        /// <summary>
+        /// Returns the last used id in the table.
+        /// </summary>
+        /// <returns>The last used id inn the table.</returns>
         public int GetLastId()
         {
-            throw new NotImplementedException();
+            int max = 0;
+            foreach (var item in this.tde.DRIVER)
+            {
+                int cur = (int)item.DRIVER_ID;
+                if (max < cur)
+                {
+                    max = cur;
+                }
+            }
+
+            return max;
         }
 
         /// <summary>
