@@ -204,7 +204,17 @@ namespace Transporter.Logic
         /// <returns>All elements in a tring array.</returns>
         public string[] RetriveCustomers()
         {
-            throw new NotImplementedException();
+            List<string[]> list = this.crep.GetTable();
+            int i = 0;
+            string[] table = new string[list.Count];
+
+            foreach (var item in list)
+            {
+                table[i] = $"{item[0]}, {item[1]}, {item[2]}, {item[3]}, {item[4]}";
+                i++;
+            }
+
+            return table;
         }
 
         /// <summary>
@@ -213,7 +223,17 @@ namespace Transporter.Logic
         /// <returns>All elements in a tring array.</returns>
         public string[] RetriveDrivers()
         {
-            throw new NotImplementedException();
+            List<string[]> list = this.drep.GetTable();
+            int i = 0;
+            string[] table = new string[list.Count];
+
+            foreach (var item in list)
+            {
+                table[i] = $"{item[0]}, {item[1]}, {item[2]}, {item[3]}, {item[4]}, {item[5]}";
+                i++;
+            }
+
+            return table;
         }
 
         /// <summary>
@@ -222,7 +242,17 @@ namespace Transporter.Logic
         /// <returns>All elements in a tring array.</returns>
         public string[] RetrivePakages()
         {
-            throw new NotImplementedException();
+            List<string[]> list = this.prep.GetTable();
+            int i = 0;
+            string[] table = new string[list.Count];
+
+            foreach (var item in list)
+            {
+                table[i] = $"{item[0]}, {item[1]}, {item[2]}, {item[3]}, {item[4]}, {item[5]}";
+                i++;
+            }
+
+            return table;
         }
     }
 }
