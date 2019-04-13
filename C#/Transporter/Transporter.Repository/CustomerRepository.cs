@@ -122,7 +122,7 @@ namespace Transporter.Repository
         /// <param name="eMail">The customers e-mail adress.</param>
         public void Insert(int id, string name, string andress, string phoneNum, string eMail)
         {
-            this.tde.CUSTOMER.Add( new CUSTOMER
+            this.tde.CUSTOMER.Add(new CUSTOMER
             {
                 CUSTOMER_ID = id,
                 CNAME = name,
@@ -136,17 +136,11 @@ namespace Transporter.Repository
         /// <summary>
         /// Removes a customer from the table.
         /// </summary>
-        /// <param name="entity">The name and adress of the customer to remove as an entyty.</param>
-        public void Remove(CUSTOMER entity)
-        {
-            CUSTOMER toRemove = this.tde.CUSTOMER.Where(x => x.CNAME.Equals(entity.CNAME) && x.CADRESS.Equals(entity.CADRESS)).Single();
-            this.tde.CUSTOMER.Remove(toRemove);
-            this.tde.SaveChanges();
-        }
-
+        /// <param name="id">The id of the customer to remove.</param>
         public void Remove(int id)
         {
-            throw new NotImplementedException();
+            this.tde.CUSTOMER.Remove(this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(id)).Single());
+            this.tde.SaveChanges();
         }
 
         /// <summary>
