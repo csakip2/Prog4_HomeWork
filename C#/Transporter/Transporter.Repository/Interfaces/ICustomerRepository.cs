@@ -35,5 +35,16 @@ namespace Transporter.Repository
         /// <param name="id">The ID of the customer.</param>
         /// <param name="newEmail">The new e-mail adress.</param>
         void ChangeEmail(int id, string newEmail);
+
+        /// <summary>
+        /// Inserts an Entity into the table.
+        /// </summary>
+        /// <param name="id">The customers id.</param>
+        /// <param name="name">The customers name.</param>
+        /// <param name="andress">The customers adress.</param>
+        /// <param name="phoneNum">The customers phone number.</param>
+        /// <param name="eMail">The customers e-mail adress.</param>
+        void Insert(int id, string name, string andress, string phoneNum, string eMail);
+
     }
 }

@@ -35,5 +35,16 @@ namespace Transporter.Repository
         /// <param name="id">The id of the pakage.</param>
         /// <returns>The route in "[0]from, [1](through driver), [2]to" string array.</returns>
         string[] GetRoute(int id);
+
+        /// <summary>
+        /// Inserts an Entity into the table.
+        /// </summary>
+        /// <param name="id">The pakages id.</param>
+        /// <param name="senderId">The senders id.</param>
+        /// <param name="receiverId">The recivers id.</param>
+        /// <param name="weight">The pakages weight.</param>
+        /// <param name="size">The pakages size.</param>
+        /// <param name="driverId">The drivers id.</param>
+        void Insert(int id, int senderId, string receiverId, int weight, string size, int driverId);
     }
 }

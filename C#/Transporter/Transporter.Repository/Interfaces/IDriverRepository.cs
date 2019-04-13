@@ -35,5 +35,17 @@ namespace Transporter.Repository
         /// <param name="id">The id of the driver.</param>
         /// <param name="newLicPlate">The new licence plate.</param>
         void ChangeLicPlate(int id, string newLicPlate);
+
+        /// <summary>
+        /// Inserts an Entity into the table.
+        /// </summary>
+        /// <param name="id">The drivers id.</param>
+        /// <param name="name">The drivers name.</param>
+        /// <param name="adress">The drivers adress.</param>
+        /// <param name="birthDate">The drivers date of birth.</param>
+        /// <param name="licencePlate">The drivers licence plate number.</param>
+        /// <param name="phoneNum">The drivers phone number.</param>
+        void Insert(int id, string name, string adress, DateTime birthDate, string licencePlate, string phoneNum);
+
     }
 }
