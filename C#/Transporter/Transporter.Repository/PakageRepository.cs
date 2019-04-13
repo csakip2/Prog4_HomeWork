@@ -59,16 +59,12 @@ namespace Transporter.Repository
         /// <summary>
         /// Returns the id of a pakage from its sender id and receiver id.
         /// </summary>
-        /// <param name="entity">The pakages sender id and receiver id as a pakage entity.</param>
+        /// <param name="param1">The pakages sender id.</param>
+        /// <param name="param2">The pakages reciver id.</param>
         /// <returns>The pakages id.</returns>
-        public int GetId(PAKAGE entity)
-        {
-            return (int)this.tde.PAKAGE.Where(x => x.PSENDER_ID.Equals(entity.PSENDER_ID) && x.PRECEIVER_ID.Equals(entity.PRECEIVER_ID)).Single().PAKAGE_ID;
-        }
-
         public int GetId(object param1, object param2)
         {
-            throw new NotImplementedException();
+            return (int)this.tde.PAKAGE.Where(x => x.PSENDER_ID.Equals(param1) && x.PRECEIVER_ID.Equals(param2)).Single().PAKAGE_ID;
         }
 
         public int GetLastId()
