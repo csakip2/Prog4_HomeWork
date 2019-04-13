@@ -81,7 +81,7 @@ namespace Transporter.Logic
         /// <param name="newAdress">The new adress of the customer.</param>
         public void ChangeCustomerAdress(string name, string oldAdress, string newAdress)
         {
-            throw new NotImplementedException();
+            this.crep.ChangeAdress(this.crep.GetId(name, oldAdress), newAdress);
         }
 
         /// <summary>
@@ -92,7 +92,7 @@ namespace Transporter.Logic
         /// <param name="newEmail">The customers new e-mail adress.</param>
         public void ChangeCustomerEmail(string name, string adress, string newEmail)
         {
-            throw new NotImplementedException();
+            this.crep.ChangeEmail(this.crep.GetId(name, adress), newEmail);
         }
 
         /// <summary>
@@ -103,7 +103,7 @@ namespace Transporter.Logic
         /// <param name="newPhoneNum">The customers new phone number.</param>
         public void ChangeCustomerPhoneNum(string name, string adress, string newPhoneNum)
         {
-            throw new NotImplementedException();
+            this.crep.ChangePhoneNum(this.crep.GetId(name, adress), newPhoneNum);
         }
 
         /// <summary>
