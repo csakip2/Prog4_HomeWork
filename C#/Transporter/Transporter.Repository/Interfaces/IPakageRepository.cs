@@ -27,8 +27,8 @@ namespace Transporter.Repository
         /// Returns the driver of the pakage.
         /// </summary>
         /// <param name="id">The id of the pakage.</param>
-        /// <returns>Returns the driver as a Data.DRIVER object.</returns>
-        Data.DRIVER GetDriver(int id);
+        /// <returns>Returns the drivers data in a string array.</returns>
+        string[] GetDriver(int id);
 
         /// <summary>
         /// Returns the route of the pakage.
