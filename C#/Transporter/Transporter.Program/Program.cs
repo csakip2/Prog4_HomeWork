@@ -4,6 +4,7 @@
 namespace Transporter.Program
 {
     using System;
+    using Transporter.Logic;
 
     /// <summary>
     /// Main class.
@@ -51,13 +52,22 @@ namespace Transporter.Program
         /// <param name="param">The number of the chosen operation.</param>
         private static void Execute(int param)
         {
+            Logic logic = new Logic();
+
             switch (param)
             {
                 case 0:
-                    Console.WriteLine("Press a key to exit.");
+                    Console.WriteLine("Press any key to exit.");
                     break;
                 case 1:
-                    Console.WriteLine("Not Implemented.");
+
+                    string[] table = logic.RetriveCustomers();
+
+                    foreach (var item in table)
+                    {
+                        Console.WriteLine(item);
+                    }
+
                     break;
                 case 2:
                     Console.WriteLine("Not Implemented.");
