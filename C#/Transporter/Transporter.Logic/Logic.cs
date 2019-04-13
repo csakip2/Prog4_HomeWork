@@ -14,7 +14,7 @@ namespace Transporter.Logic
     /// <summary>
     /// Logic class. Handels repository methods.
     /// </summary>
-    internal class Logic : ILogic
+    public class Logic : ILogic
     {
         private CustomerRepository crep;
         private PakageRepository prep;
