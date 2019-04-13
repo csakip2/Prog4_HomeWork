@@ -113,18 +113,24 @@ namespace Transporter.Repository
         }
 
         /// <summary>
-        /// Inserts a new customer into the table.
+        /// Inserts an customer into the table.
         /// </summary>
-        /// <param name="entity">The new Customer.</param>
-        public void Insert(CUSTOMER entity)
-        {
-            this.tde.CUSTOMER.Add(entity);
-            this.tde.SaveChanges();
-        }
-
+        /// <param name="id">The customers id.</param>
+        /// <param name="name">The customers name.</param>
+        /// <param name="andress">The customers adress.</param>
+        /// <param name="phoneNum">The customers phone number.</param>
+        /// <param name="eMail">The customers e-mail adress.</param>
         public void Insert(int id, string name, string andress, string phoneNum, string eMail)
         {
-            throw new NotImplementedException();
+            this.tde.CUSTOMER.Add( new CUSTOMER
+            {
+                CUSTOMER_ID = id,
+                CNAME = name,
+                CADRESS = andress,
+                CPHONE_NUM = phoneNum,
+                CE_MAIL = eMail
+            });
+            this.tde.SaveChanges();
         }
 
         /// <summary>
