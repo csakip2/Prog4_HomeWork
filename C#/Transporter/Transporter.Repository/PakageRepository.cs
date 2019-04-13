@@ -67,9 +67,23 @@ namespace Transporter.Repository
             return (int)this.tde.PAKAGE.Where(x => x.PSENDER_ID.Equals(param1) && x.PRECEIVER_ID.Equals(param2)).Single().PAKAGE_ID;
         }
 
+        /// <summary>
+        /// Returns the last id of the table.
+        /// </summary>
+        /// <returns>The last id of the table.</returns>
         public int GetLastId()
         {
-            throw new NotImplementedException();
+            int max = 0;
+            foreach (var item in this.tde.PAKAGE)
+            {
+                int cur = (int)item.PAKAGE_ID;
+                if (max < cur)
+                {
+                    max = cur;
+                }
+            }
+
+            return max;
         }
 
         /// <summary>
