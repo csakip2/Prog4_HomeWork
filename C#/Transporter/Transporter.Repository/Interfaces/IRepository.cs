@@ -4,6 +4,7 @@
 
 namespace Transporter.Repository
 {
+    using System.Collections.Generic;
     using System.Linq;
 
     /// <summary>
@@ -14,28 +15,23 @@ namespace Transporter.Repository
     internal interface IRepository<TEntity>
     {
         /// <summary>
-        /// Returns all elements of a table as IQueryable.
+        /// Returns all elements of a table in a string array list.
         /// </summary>
-        /// <returns>All element as IQueryable.</returns>
-        IQueryable<TEntity> GetTable();
+        /// <returns>All rows in a string array and the table in a list.</returns>
+        List<string[]> GetTable();
 
         /// <summary>
-        /// Inserts an Entity into the table.
+        /// Removes a given entity from a table.
         /// </summary>
-        /// <param name="entity">The entity to insert.</param>
-        void Insert(TEntity entity);
-
-        /// <summary>
-        /// Removes the given entity.
-        /// </summary>
-        /// <param name="entity">The entity to remove.</param>
-        void Remove(TEntity entity);
+        /// <param name="id">The id of the entity.</param>
+        void Remove(int id);
 
         /// <summary>
         /// Gets the id of an entity from a table.
         /// </summary>
-        /// <param name="entity">The entity of a table.</param>
+        /// <param name="param1">Parameter1 (name, senderid) for geting the id.</param>
+        /// <param name="param2">Parameter2 (adress, reciverid) for geting the id.</param>
         /// <returns>The id of the entity.</returns>
-        int GetId(TEntity entity);
+        int GetId(object param1, object param2);
     }
 }
