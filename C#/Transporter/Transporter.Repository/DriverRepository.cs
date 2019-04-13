@@ -59,13 +59,19 @@ namespace Transporter.Repository
         }
 
         /// <summary>
-        /// Returns the id of a driver from its name and adress.
+        /// Returns the ID of the driver from its name and adress.
         /// </summary>
-        /// <param name="entity">The drivers name and adress as a driver entity.</param>
-        /// <returns>The drivers id.</returns>
-        public int GetId(DRIVER entity)
+        /// <param name="param1">The drivers name.</param>
+        /// <param name="param2">The drivers adress.</param>
+        /// <returns>The ID of the driver.</returns>
+        public int GetId(object param1, object param2)
         {
-            return (int)this.tde.DRIVER.Where(x => x.DNAME.Equals(entity.DNAME) && x.DADRESS.Equals(entity.DADRESS)).Single().DRIVER_ID;
+            return (int)this.tde.DRIVER.Where(x => x.DNAME.Equals(param1) && x.DADRESS.Equals(param2)).Single().DRIVER_ID;
+        }
+
+        public int GetLastId()
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
@@ -102,6 +108,11 @@ namespace Transporter.Repository
             this.tde.SaveChanges();
         }
 
+        public void Insert(int id, string name, string adress, DateTime birthDate, string licencePlate, string phoneNum)
+        {
+            throw new NotImplementedException();
+        }
+
         /// <summary>
         /// Removes a driver from the table.
         /// </summary>
@@ -111,6 +122,11 @@ namespace Transporter.Repository
             DRIVER toRemove = this.tde.DRIVER.Where(x => x.DNAME.Equals(entity.DNAME) && x.DADRESS.Equals(entity.DADRESS)).Single();
             this.tde.DRIVER.Remove(toRemove);
             this.tde.SaveChanges();
+        }
+
+        public void Remove(int id)
+        {
+            throw new NotImplementedException();
         }
 
         /// <summary>
