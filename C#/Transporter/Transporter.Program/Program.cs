@@ -60,7 +60,8 @@ namespace Transporter.Program
         private static void Execute(int param)
         {
             Logic logic = new Logic();
-
+            string name = string.Empty;
+            string adress = string.Empty;
             switch (param)
             {
                 case 0:
@@ -110,9 +111,7 @@ namespace Transporter.Program
                 case 4:
                     Console.Clear();
 
-                    string name = string.Empty,
-                        adress = string.Empty,
-                        phoneNum = string.Empty,
+                    string phoneNum = string.Empty,
                         e_mail = string.Empty;
 
                     Console.WriteLine("Name:");
@@ -187,18 +186,16 @@ namespace Transporter.Program
                 case 6:
                     Console.Clear();
 
-                    string driverName = string.Empty,
-                        driverAdress = string.Empty,
-                        licencePlate = string.Empty,
+                    string licencePlate = string.Empty,
                         driverPhoneNum = string.Empty;
 
                     DateTime birthDate = DateTime.Now;
 
                     Console.WriteLine("Name:");
-                    driverName = Console.ReadLine();
+                    name = Console.ReadLine();
 
                     Console.WriteLine("Adress:");
-                    driverAdress = Console.ReadLine();
+                    adress = Console.ReadLine();
 
                     Console.WriteLine("Date of birth (YYYY.MM.DD):");
                     birthDate = DateTime.ParseExact(Console.ReadLine(), "yyyy.MM.dd", System.Globalization.CultureInfo.InvariantCulture);
@@ -209,7 +206,7 @@ namespace Transporter.Program
                     Console.WriteLine("E-Mail Adress");
                     licencePlate = Console.ReadLine();
 
-                    logic.AddDriver(driverName, driverAdress, birthDate, licencePlate, driverPhoneNum);
+                    logic.AddDriver(name, adress, birthDate, licencePlate, driverPhoneNum);
 
                     Console.WriteLine();
                     Console.WriteLine("Added successfully.");
@@ -218,35 +215,147 @@ namespace Transporter.Program
                     Console.WriteLine("Press any key to return to menu.");
                     break;
                 case 7:
-                    Console.WriteLine("Not Implemented.");
+                    Console.Clear();
+
+                    string oldAdress = string.Empty,
+                        newAdress = string.Empty;
+
+                    Console.WriteLine("Name:");
+                    name = Console.ReadLine();
+
+                    Console.WriteLine("Old adress:");
+                    oldAdress = Console.ReadLine();
+
+                    Console.WriteLine("New adress:");
+                    newAdress = Console.ReadLine();
+
+                    logic.ChangeCustomerAdress(name, oldAdress, newAdress);
+
+                    Console.WriteLine();
+                    Console.WriteLine("Changed successfully.");
+
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
                     break;
                 case 8:
                     Console.Clear();
 
-                    Console.WriteLine("Not Implemented.");
+                    string newPhoneNum = string.Empty;
+
+                    Console.WriteLine("Name:");
+                    name = Console.ReadLine();
+
+                    Console.WriteLine("Adress:");
+                    adress = Console.ReadLine();
+
+                    Console.WriteLine("New phone number:");
+                    newPhoneNum = Console.ReadLine();
+
+                    logic.ChangeCustomerPhoneNum(name, adress, newPhoneNum);
+
+                    Console.WriteLine();
+                    Console.WriteLine("Changed successfully.");
+
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
                     break;
                 case 9:
                     Console.Clear();
 
-                    Console.WriteLine("Not Implemented.");
+                    string newE_Mail = string.Empty;
+
+                    Console.WriteLine("Name:");
+                    name = Console.ReadLine();
+
+                    Console.WriteLine("Adress:");
+                    adress = Console.ReadLine();
+
+                    Console.WriteLine("New e-mail adress:");
+                    newE_Mail = Console.ReadLine();
+
+                    logic.ChangeCustomerEmail(name, adress, newE_Mail);
+
+                    Console.WriteLine();
+                    Console.WriteLine("Changed successfully.");
+
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
                     break;
                 case 10:
                     Console.Clear();
 
-                    Console.WriteLine("Not Implemented.");
+                    Console.WriteLine("Name:");
+                    name = Console.ReadLine();
+
+                    Console.WriteLine("Old adress:");
+                    oldAdress = Console.ReadLine();
+
+                    Console.WriteLine("New adress:");
+                    newAdress = Console.ReadLine();
+
+                    logic.ChangeDriverAdress(name, oldAdress, newAdress);
+
+                    Console.WriteLine();
+                    Console.WriteLine("Changed successfully.");
+
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
                     break;
                 case 11:
                     Console.Clear();
 
-                    Console.WriteLine("Not Implemented.");
+                    string newLicPlate = string.Empty;
+
+                    Console.WriteLine("Name:");
+                    name = Console.ReadLine();
+
+                    Console.WriteLine("Adress:");
+                    adress = Console.ReadLine();
+
+                    Console.WriteLine("New licence plate number:");
+                    newLicPlate = Console.ReadLine();
+
+                    logic.ChangeDriverLicPlate(name, adress, newLicPlate);
+
+                    Console.WriteLine();
+                    Console.WriteLine("Changed successfully.");
+
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
                     break;
                 case 12:
                     Console.Clear();
 
-                    Console.WriteLine("Not Implemented.");
+                    Console.WriteLine("Name:");
+                    name = Console.ReadLine();
+
+                    Console.WriteLine("Adress:");
+                    adress = Console.ReadLine();
+
+                    Console.WriteLine("New phone number:");
+                    newPhoneNum = Console.ReadLine();
+
+                    logic.ChangeDriverPhoneNum(name, adress, newPhoneNum);
+
+                    Console.WriteLine();
+                    Console.WriteLine("Changed successfully.");
+
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
                     break;
                 case 13:
                     Console.Clear();
+
+                    int pakageId = 0,
+                        newDriverId = 0;
+
+                    Console.WriteLine("The pakages ID:");
+                    pakageId = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine("The new drivers ID:");
+                    newDriverId = int.Parse(Console.ReadLine());
+
+                    logic.ChangePakageDriver(pakageId, newDriverId);
 
                     Console.WriteLine("Not Implemented.");
                     break;
