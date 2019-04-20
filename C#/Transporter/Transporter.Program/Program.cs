@@ -357,17 +357,31 @@ namespace Transporter.Program
 
                     logic.ChangePakageDriver(pakageId, newDriverId);
 
-                    Console.WriteLine("Not Implemented.");
+                    Console.WriteLine();
+                    Console.WriteLine("Changed successfully.");
+
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
                     break;
                 case 14:
                     Console.Clear();
 
-                    Console.WriteLine("Not Implemented.");
+                    Console.WriteLine("The pakages ID:");
+                    pakageId = int.Parse(Console.ReadLine());
+
+                    string[] driver = logic.GetPakageDriver(pakageId);
+
+                    Console.WriteLine(driver[0] + ", " + driver[1]);
                     break;
                 case 15:
                     Console.Clear();
 
-                    Console.WriteLine("Not Implemented.");
+                    Console.WriteLine("The pakages ID:");
+                    pakageId = int.Parse(Console.ReadLine());
+
+                    string[] route = logic.GetPakageRoute(pakageId);
+
+                    Console.WriteLine($"From: {route[0]}, to: {route[2]}, driver: {route[2]}");
                     break;
                 case 16:
                     Console.Clear();
