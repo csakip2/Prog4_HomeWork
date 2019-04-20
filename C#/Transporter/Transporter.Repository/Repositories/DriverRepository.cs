@@ -32,7 +32,7 @@ namespace Transporter.Repository
         /// <param name="newAdress">The new adress of the driver.</param>
         public void ChangeAdress(int id, string newAdress)
         {
-            this.tde.DRIVER.Where(x => x.DRIVER_ID.Equals(id)).Single().DADRESS = newAdress;
+            this.tde.DRIVER.Where(x => x.DRIVER_ID.ToString().Equals(id.ToString())).Single().DADRESS = newAdress;
             this.tde.SaveChanges();
         }
 
@@ -43,7 +43,7 @@ namespace Transporter.Repository
         /// <param name="newLicPlate">The new licence plate number.</param>
         public void ChangeLicPlate(int id, string newLicPlate)
         {
-            this.tde.DRIVER.Where(x => x.DRIVER_ID.Equals(id)).Single().DLICENCE_PLATE = newLicPlate;
+            this.tde.DRIVER.Where(x => x.DRIVER_ID.ToString().Equals(id.ToString())).Single().DLICENCE_PLATE = newLicPlate;
             this.tde.SaveChanges();
         }
 
@@ -54,7 +54,7 @@ namespace Transporter.Repository
         /// <param name="newPhoneNum">The new phone number.</param>
         public void ChangePhoneNum(int id, string newPhoneNum)
         {
-            this.tde.DRIVER.Where(x => x.DRIVER_ID.Equals(id)).Single().DPHONE_NUM = newPhoneNum;
+            this.tde.DRIVER.Where(x => x.DRIVER_ID.ToString().Equals(id.ToString())).Single().DPHONE_NUM = newPhoneNum;
             this.tde.SaveChanges();
         }
 
@@ -66,7 +66,7 @@ namespace Transporter.Repository
         /// <returns>The ID of the driver.</returns>
         public int GetId(object param1, object param2)
         {
-            return (int)this.tde.DRIVER.Where(x => x.DNAME.Equals(param1) && x.DADRESS.Equals(param2)).Single().DRIVER_ID;
+            return (int)this.tde.DRIVER.Where(x => x.DNAME.ToString().Equals(param1.ToString()) && x.DADRESS.ToString().Equals(param2.ToString())).Single().DRIVER_ID;
         }
 
         /// <summary>
@@ -141,7 +141,7 @@ namespace Transporter.Repository
         /// <param name="id">The id of the driver.</param>
         public void Remove(int id)
         {
-            this.tde.DRIVER.Remove(this.tde.DRIVER.Where(x => x.DRIVER_ID.Equals(id)).Single());
+            this.tde.DRIVER.Remove(this.tde.DRIVER.Where(x => x.DRIVER_ID.ToString().Equals(id.ToString())).Single());
             this.tde.SaveChanges();
         }
     }
