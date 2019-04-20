@@ -108,17 +108,112 @@ namespace Transporter.Program
                 case 4:
                     Console.Clear();
 
-                    Console.WriteLine("Not Implemented.");
+                    string name = string.Empty,
+                        adress = string.Empty,
+                        phoneNum = string.Empty,
+                        e_mail = string.Empty;
+
+                    Console.WriteLine("Name:");
+                    name = Console.ReadLine();
+
+                    Console.WriteLine("Adress:");
+                    adress = Console.ReadLine();
+
+                    Console.WriteLine("Phone Number");
+                    phoneNum = Console.ReadLine();
+
+                    Console.WriteLine("E-Mail Adress");
+                    e_mail = Console.ReadLine();
+
+                    logic.AddCustomer(name, adress, phoneNum, e_mail);
+
+                    Console.WriteLine();
+                    Console.WriteLine("Added successfully.");
+
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
                     break;
                 case 5:
                     Console.Clear();
 
-                    Console.WriteLine("Not Implemented.");
+                    string senderName = string.Empty,
+                        senderAdress = string.Empty,
+                        reciverName = string.Empty,
+                        reciverAdress = string.Empty,
+                        size = string.Empty;
+                    int weight = 0;
+                    bool ok = false;
+
+                    Console.WriteLine("Sender name:");
+                    senderName = Console.ReadLine();
+
+                    Console.WriteLine("Sender adress:");
+                    senderAdress = Console.ReadLine();
+
+                    Console.WriteLine("Reciver name:");
+                    reciverName = Console.ReadLine();
+
+                    Console.WriteLine("Reciver adress:");
+                    reciverAdress = Console.ReadLine();
+
+                    Console.WriteLine("Size (small, medium, large):");
+                    while (!ok)
+                    {
+                        size = Console.ReadLine().ToUpper();
+
+                        if (size == "SMALL" || size == "MEDIUM" || size == "LARGE")
+                        {
+                            ok = true;
+                        }
+                        else
+                        {
+                            Console.WriteLine("Size has to be small, medium or large.");
+                        }
+                    }
+
+                    Console.WriteLine("Weight (kg):");
+                    weight = int.Parse(Console.ReadLine());
+
+                    logic.AddPakage(senderName, senderAdress, reciverName, reciverAdress, weight, size);
+
+                    Console.WriteLine();
+                    Console.WriteLine("Added successfully.");
+
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
                     break;
                 case 6:
                     Console.Clear();
 
-                    Console.WriteLine("Not Implemented.");
+                    string driverName = string.Empty,
+                        driverAdress = string.Empty,
+                        licencePlate = string.Empty,
+                        driverPhoneNum = string.Empty;
+
+                    DateTime birthDate = DateTime.Now;
+
+                    Console.WriteLine("Name:");
+                    driverName = Console.ReadLine();
+
+                    Console.WriteLine("Adress:");
+                    driverAdress = Console.ReadLine();
+
+                    Console.WriteLine("Date of birth (YYYY.MM.DD):");
+                    birthDate = DateTime.ParseExact(Console.ReadLine(), "yyyy.MM.dd", System.Globalization.CultureInfo.InvariantCulture);
+
+                    Console.WriteLine("Phone Number");
+                    driverPhoneNum = Console.ReadLine();
+
+                    Console.WriteLine("E-Mail Adress");
+                    licencePlate = Console.ReadLine();
+
+                    logic.AddDriver(driverName, driverAdress, birthDate, licencePlate, driverPhoneNum);
+
+                    Console.WriteLine();
+                    Console.WriteLine("Added successfully.");
+
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
                     break;
                 case 7:
                     Console.WriteLine("Not Implemented.");
