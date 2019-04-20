@@ -31,16 +31,18 @@ namespace Transporter.Program
                 Console.WriteLine("Add new pakage: 5");
                 Console.WriteLine("Add new driver: 6");
                 Console.WriteLine("Change customer adress: 7");
-                Console.WriteLine("Change pakage driver: 8");
-                Console.WriteLine("Change driver: 9");
-                Console.WriteLine("Delete customer: 10");
-                Console.WriteLine("Delete pakage: 11");
-                Console.WriteLine("Delete driver: 12");
-                Console.WriteLine("Retrive every table: 13");
-                Console.WriteLine("Retrive pakage driver: 14");
-                Console.WriteLine("Change pakage driver: 15");
-                Console.WriteLine("Retrive pakages full route: 16");
-                Console.WriteLine("Get price and transport time estimate: 17");
+                Console.WriteLine("Change customer phone number: 8");
+                Console.WriteLine("Change customer e-mail: 9");
+                Console.WriteLine("Change driver adress: 10");
+                Console.WriteLine("Change driver licence plate: 11");
+                Console.WriteLine("Change driver phone number: 12");
+                Console.WriteLine("Change pakage driver: 13");
+                Console.WriteLine("Get pakages driver: 14");
+                Console.WriteLine("Get pakages route: 15");
+                Console.WriteLine("Delete customer: 16");
+                Console.WriteLine("Delete pakage: 17");
+                Console.WriteLine("Delete driver: 18");
+                Console.WriteLine("Get price and transport time estimate: 19");
 
                 string input = Console.ReadLine();
                 if (input != string.Empty)
