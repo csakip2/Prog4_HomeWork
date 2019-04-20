@@ -41,7 +41,6 @@ namespace Transporter.Program
                 Console.WriteLine("Get price and transport time estimate: 17");
 
                 param = int.Parse(Console.ReadLine());
-
                 Execute(param);
             }
         }
