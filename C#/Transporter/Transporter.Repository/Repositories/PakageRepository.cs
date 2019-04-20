@@ -43,7 +43,7 @@ namespace Transporter.Repository
         /// <returns>The pakages driver.</returns>
         public string[] GetDriver(int id)
         {
-            DRIVER driver = this.tde.DRIVER.Where(x => x.DRIVER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single())).Single();
+            DRIVER driver = this.tde.DRIVER.Where(x => x.DRIVER_ID.ToString().Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.ToString().Equals(id.ToString())).FirstOrDefault().PDRIVER_ID.ToString())).Single();
 
             return new string[]
             {
@@ -91,14 +91,14 @@ namespace Transporter.Repository
         {
             string[] route = new string[3];
 
-            route[0] = this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single().PSENDER_ID)).Single().CUSTOMER_ID.ToString()
-               + " " + this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single().PSENDER_ID)).Single().CNAME.ToString();
+            route[0] = this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.ToString().Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.ToString().Equals(id.ToString())).FirstOrDefault().PSENDER_ID.ToString())).Single().CUSTOMER_ID.ToString()
+               + " " + this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.ToString().Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.ToString().Equals(id.ToString())).FirstOrDefault().PSENDER_ID.ToString())).Single().CNAME.ToString();
 
             route[1] = this.GetDriverAsDriver(id).DLICENCE_PLATE
                + " " + this.GetDriverAsDriver(id).DNAME;
 
-            route[2] = this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single().PRECEIVER_ID)).Single().CUSTOMER_ID.ToString()
-               + " " + this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single().PRECEIVER_ID)).Single().CNAME.ToString();
+            route[2] = this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.ToString().Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.ToString().Equals(id.ToString())).FirstOrDefault().PRECEIVER_ID.ToString())).Single().CUSTOMER_ID.ToString()
+               + " " + this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.ToString().Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.ToString().Equals(id.ToString())).FirstOrDefault().PRECEIVER_ID.ToString())).Single().CNAME.ToString();
 
             return route;
         }
@@ -168,7 +168,7 @@ namespace Transporter.Repository
         /// <returns>The driver as a driver entity.</returns>
         private DRIVER GetDriverAsDriver(int id)
         {
-            return this.tde.DRIVER.Where(x => x.DRIVER_ID.Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.Equals(id)).Single())).Single();
+            return this.tde.DRIVER.Where(x => x.DRIVER_ID.ToString().Equals(this.tde.PAKAGE.Where(y => y.PAKAGE_ID.ToString().Equals(id.ToString())).FirstOrDefault().PDRIVER_ID.ToString())).Single();
         }
     }
 }
