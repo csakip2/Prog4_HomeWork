@@ -386,17 +386,63 @@ namespace Transporter.Program
                 case 16:
                     Console.Clear();
 
-                    Console.WriteLine("Not Implemented.");
+                    Console.WriteLine("Name:");
+                    name = Console.ReadLine();
+
+                    Console.WriteLine("Adress:");
+                    adress = Console.ReadLine();
+
+                    logic.RemoveCustomer(name, adress);
+
+                    Console.WriteLine();
+                    Console.WriteLine("Deleted successfully.");
+
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
                     break;
                 case 17:
                     Console.Clear();
 
-                    Console.WriteLine("Not Implemented.");
+                    Console.WriteLine("The pakages ID:");
+                    pakageId = int.Parse(Console.ReadLine());
+
+                    logic.RemovePakage(pakageId);
+
+                    Console.WriteLine();
+                    Console.WriteLine("Deleted successfully.");
+
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
+                    break;
+                case 18:
+                    Console.Clear();
+
+                    Console.WriteLine("Name:");
+                    name = Console.ReadLine();
+
+                    Console.WriteLine("Adress:");
+                    adress = Console.ReadLine();
+
+                    logic.RemoveDriver(name, adress);
+
+                    Console.WriteLine();
+                    Console.WriteLine("Deleted successfully.");
+
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
+                    break;
+                case 19:
+                    Console.Clear();
+
+                    Console.WriteLine();
+                    Console.WriteLine("Not implemented!");
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
                     break;
                 default:
                     Console.Clear();
 
-                    Console.WriteLine("Give a number between 0 and 17!");
+                    Console.WriteLine("Give a number between 0 and 19!");
                     break;
             }
 
