@@ -17,10 +17,12 @@ namespace Transporter.Program
         /// <param name="args">Main method argument.</param>
         private static void Main(string[] args)
         {
-            int param = -1;
+            int param = 100;
 
             while (param != 0)
             {
+                Console.Clear();
+
                 Console.WriteLine("Exit: 0");
                 Console.WriteLine("Retrive customers: 1");
                 Console.WriteLine("Retrive pakages: 2");
@@ -40,8 +42,12 @@ namespace Transporter.Program
                 Console.WriteLine("Retrive pakages full route: 16");
                 Console.WriteLine("Get price and transport time estimate: 17");
 
-                param = int.Parse(Console.ReadLine());
-                Execute(param);
+                string input = Console.ReadLine();
+                if (input != string.Empty)
+                {
+                    param = int.Parse(input);
+                    Execute(param);
+                }
             }
         }
 
@@ -56,67 +62,120 @@ namespace Transporter.Program
             switch (param)
             {
                 case 0:
+                    Console.Clear();
+
                     Console.WriteLine("Press any key to exit.");
                     break;
                 case 1:
+                    Console.Clear();
 
-                    string[] table = logic.RetriveCustomers();
+                    string[] ctable = logic.RetriveCustomers();
 
-                    foreach (var item in table)
+                    foreach (var item in ctable)
                     {
                         Console.WriteLine(item);
                     }
 
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
                     break;
                 case 2:
-                    Console.WriteLine("Not Implemented.");
+                    Console.Clear();
+
+                    string[] ptable = logic.RetrivePakages();
+
+                    foreach (var item in ptable)
+                    {
+                        Console.WriteLine(item);
+                    }
+
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
                     break;
                 case 3:
-                    Console.WriteLine("Not Implemented.");
+                    Console.Clear();
+
+                    string[] dtable = logic.RetriveDrivers();
+
+                    foreach (var item in dtable)
+                    {
+                        Console.WriteLine(item);
+                    }
+
+                    Console.WriteLine();
+                    Console.WriteLine("Press any key to return to menu.");
                     break;
                 case 4:
+                    Console.Clear();
+
                     Console.WriteLine("Not Implemented.");
                     break;
                 case 5:
+                    Console.Clear();
+
                     Console.WriteLine("Not Implemented.");
                     break;
                 case 6:
+                    Console.Clear();
+
                     Console.WriteLine("Not Implemented.");
                     break;
                 case 7:
                     Console.WriteLine("Not Implemented.");
                     break;
                 case 8:
+                    Console.Clear();
+
                     Console.WriteLine("Not Implemented.");
                     break;
                 case 9:
+                    Console.Clear();
+
                     Console.WriteLine("Not Implemented.");
                     break;
                 case 10:
+                    Console.Clear();
+
                     Console.WriteLine("Not Implemented.");
                     break;
                 case 11:
+                    Console.Clear();
+
                     Console.WriteLine("Not Implemented.");
                     break;
                 case 12:
+                    Console.Clear();
+
                     Console.WriteLine("Not Implemented.");
                     break;
                 case 13:
+                    Console.Clear();
+
                     Console.WriteLine("Not Implemented.");
                     break;
                 case 14:
+                    Console.Clear();
+
                     Console.WriteLine("Not Implemented.");
                     break;
                 case 15:
+                    Console.Clear();
+
                     Console.WriteLine("Not Implemented.");
                     break;
                 case 16:
+                    Console.Clear();
+
                     Console.WriteLine("Not Implemented.");
                     break;
                 case 17:
+                    Console.Clear();
+
                     Console.WriteLine("Not Implemented.");
                     break;
                 default:
+                    Console.Clear();
+
                     Console.WriteLine("Give a number between 0 and 17!");
                     break;
             }
