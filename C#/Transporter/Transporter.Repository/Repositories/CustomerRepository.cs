@@ -32,7 +32,7 @@ namespace Transporter.Repository
         /// <param name="newAdress">The customers new adress.</param>
         public void ChangeAdress(int id, string newAdress)
         {
-            this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(id)).Single().CADRESS = newAdress;
+            this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.ToString().Equals(id.ToString())).Single().CADRESS = newAdress;
             this.tde.SaveChanges();
         }
 
@@ -43,7 +43,7 @@ namespace Transporter.Repository
         /// <param name="newEmail">The customers new e-mail adress.</param>
         public void ChangeEmail(int id, string newEmail)
         {
-            this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(id)).Single().CE_MAIL = newEmail;
+            this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.ToString().Equals(id.ToString())).Single().CE_MAIL = newEmail;
             this.tde.SaveChanges();
         }
 
@@ -54,7 +54,7 @@ namespace Transporter.Repository
         /// <param name="newPhoneNum">The customers new phone number.</param>
         public void ChangePhoneNum(int id, string newPhoneNum)
         {
-            this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(id)).Single().CPHONE_NUM = newPhoneNum;
+            this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.ToString().Equals(id.ToString())).Single().CPHONE_NUM = newPhoneNum;
             this.tde.SaveChanges();
         }
 
@@ -66,7 +66,7 @@ namespace Transporter.Repository
         /// <returns>The ID of the customer.</returns>
         public int GetId(object param1, object param2)
         {
-            return (int)this.tde.CUSTOMER.Where(x => x.CNAME.Equals(param1.ToString()) && x.CADRESS.Equals(param2.ToString())).Single().CUSTOMER_ID;
+            return (int)this.tde.CUSTOMER.Where(x => x.CNAME.ToString().Equals(param1.ToString()) && x.CADRESS.ToString().Equals(param2.ToString())).Single().CUSTOMER_ID;
         }
 
         /// <summary>
@@ -139,7 +139,7 @@ namespace Transporter.Repository
         /// <param name="id">The id of the customer to remove.</param>
         public void Remove(int id)
         {
-            this.tde.CUSTOMER.Remove(this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.Equals(id)).Single());
+            this.tde.CUSTOMER.Remove(this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.ToString().Equals(id.ToString())).Single());
             this.tde.SaveChanges();
         }
     }
