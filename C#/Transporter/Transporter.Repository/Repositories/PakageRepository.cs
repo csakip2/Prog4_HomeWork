@@ -32,7 +32,7 @@ namespace Transporter.Repository
         /// <param name="newDriverId">Id of the new driver.</param>
         public void ChangeDriver(int id, int newDriverId)
         {
-            this.tde.PAKAGE.Where(x => x.PAKAGE_ID.Equals(newDriverId)).Single().PDRIVER_ID = newDriverId;
+            this.tde.PAKAGE.Where(x => x.PAKAGE_ID.ToString().Equals(newDriverId.ToString())).Single().PDRIVER_ID = newDriverId;
             this.tde.SaveChanges();
         }
 
@@ -60,7 +60,7 @@ namespace Transporter.Repository
         /// <returns>The pakages id.</returns>
         public int GetId(object param1, object param2)
         {
-            return (int)this.tde.PAKAGE.Where(x => x.PSENDER_ID.Equals(param1) && x.PRECEIVER_ID.Equals(param2)).Single().PAKAGE_ID;
+            return (int)this.tde.PAKAGE.Where(x => x.PSENDER_ID.ToString().Equals(param1.ToString()) && x.PRECEIVER_ID.ToString().Equals(param2.ToString())).Single().PAKAGE_ID;
         }
 
         /// <summary>
@@ -157,7 +157,7 @@ namespace Transporter.Repository
         /// <param name="id">The id of the pakage.</param>
         public void Remove(int id)
         {
-            this.tde.PAKAGE.Remove(this.tde.PAKAGE.Where(x => x.PAKAGE_ID.Equals(id)).Single());
+            this.tde.PAKAGE.Remove(this.tde.PAKAGE.Where(x => x.PAKAGE_ID.ToString().Equals(id.ToString())).Single());
             this.tde.SaveChanges();
         }
 
