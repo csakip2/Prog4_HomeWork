@@ -12,7 +12,7 @@ namespace Transporter.Repository
     /// Contains all needed CRUD methods.
     /// </summary>
     /// <typeparam name="TEntity">Generic TEntity for all enttities.</typeparam>
-    internal interface IRepository<TEntity>
+    public interface IRepository<TEntity>
     {
         /// <summary>
         /// Returns all elements of a table in a string array list.

@@ -14,7 +14,7 @@ namespace Transporter.Repository
     /// <summary>
     /// Repository interface for driver specific methods.
     /// </summary>
-    internal interface IDriverRepository : IRepository<DRIVER>
+    public interface IDriverRepository : IRepository<DRIVER>
     {
         /// <summary>
         /// Changes the drivers adress.

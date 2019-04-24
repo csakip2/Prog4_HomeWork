@@ -14,7 +14,7 @@ namespace Transporter.Repository
     /// <summary>
     /// Repository interface for pakage specific methods.
     /// </summary>
-    internal interface IPakageRepository : IRepository<PAKAGE>
+    public interface IPakageRepository : IRepository<PAKAGE>
     {
         /// <summary>
         /// Changes the pakages driver.

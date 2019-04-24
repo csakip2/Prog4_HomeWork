@@ -14,7 +14,7 @@ namespace Transporter.Repository
     /// <summary>
     /// Repository interface for the customer specific methods.
     /// </summary>
-    internal interface ICustomerRepository : IRepository<CUSTOMER>
+    public interface ICustomerRepository : IRepository<CUSTOMER>
     {
         /// <summary>
         /// Changes a customers adress.
