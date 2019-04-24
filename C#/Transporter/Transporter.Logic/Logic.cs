@@ -31,6 +31,20 @@ namespace Transporter.Logic
         }
 
         /// <summary>
+        /// Initializes a new instance of the <see cref="Logic"/> class.
+        /// Only used for moq.
+        /// </summary>
+        /// <param name="crep">The mocked CustomerRepository.</param>
+        /// <param name="prep">The mocked PakageRepository.</param>
+        /// <param name="drep">The mocked DriverRepository.</param>
+        public Logic(CustomerRepository crep, PakageRepository prep, DriverRepository drep)
+        {
+            this.crep = crep;
+            this.prep = prep;
+            this.drep = drep;
+        }
+
+        /// <summary>
         /// Adds a new customer to the table.
         /// </summary>
         /// <param name="name">The new customers name.</param>
