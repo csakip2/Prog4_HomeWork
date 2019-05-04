@@ -21,11 +21,22 @@ namespace Transporter.LogicTests
     [TestFixture]
     public class LogicTests
     {
-        private Mock<ICustomerRepository> moqCustRepo = new Mock<ICustomerRepository>();
-        private Mock<IPakageRepository> moqPakRepo = new Mock<IPakageRepository>();
-        private Mock<IDriverRepository> moqDrivRepo = new Mock<IDriverRepository>();
+        private Mock<ICustomerRepository> moqCustRepo;
+        private Mock<IPakageRepository> moqPakRepo;
+        private Mock<IDriverRepository> moqDrivRepo;
 
         private Logic logic;
+
+        /// <summary>
+        /// Sets up the mocked repositories before each test.
+        /// </summary>
+        [SetUp]
+        public void SetUp()
+        {
+            this.moqCustRepo = new Mock<ICustomerRepository>();
+            this.moqPakRepo = new Mock<IPakageRepository>();
+            this.moqDrivRepo = new Mock<IDriverRepository>();
+        }
 
         /// <summary>
         /// Test for customer GetTable.
@@ -52,6 +63,21 @@ namespace Transporter.LogicTests
         }
 
         /// <summary>
+        /// Tests the GetCustomer methods return format.
+        /// </summary>
+        [Test]
+        public void TestGetCustomerFortat()
+        {
+            this.moqCustRepo.Setup(m => m.GetTable()).Returns(new List<string[]>() { new string[] { "1", "abc", "abc", "abc", "123" } });
+
+            this.logic = new Logic(this.moqCustRepo.Object, this.moqPakRepo.Object, this.moqDrivRepo.Object);
+
+            var res = this.logic.RetriveCustomers();
+
+            Assert.That(res[0], Is.EqualTo("1, abc, abc, abc, 123"));
+        }
+
+        /// <summary>
         /// Tests for customer insertion.
         /// </summary>
         [Test]
@@ -73,17 +99,13 @@ namespace Transporter.LogicTests
         [Test]
         public void TestChangeCustomerAdress()
         {
-            this.moqCustRepo.Setup(m => m.Insert(1, "abc", "abc", "abc", "123"));
+            this.moqCustRepo.Setup(m => m.ChangeAdress(0, "cba"));
 
             this.logic = new Logic(this.moqCustRepo.Object, this.moqPakRepo.Object, this.moqDrivRepo.Object);
 
-            this.logic.AddCustomer("abc", "abc", "abc", "123");
-
             this.logic.ChangeCustomerAdress("abc", "abc", "cba");
 
-            var res = this.logic.RetriveCustomers();
-
-            Assert.That(res[0], Is.EqualTo(new string[] { "1", "abc", "cba", "abc", "123" }));
+            this.moqCustRepo.Verify(m => m.ChangeAdress(0, "cba"), Times.Exactly(1));
         }
     }
 }
