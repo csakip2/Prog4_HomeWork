@@ -16,9 +16,9 @@ namespace Transporter.Logic
     /// </summary>
     public class Logic : ILogic
     {
-        private CustomerRepository crep;
-        private PakageRepository prep;
-        private DriverRepository drep;
+        private ICustomerRepository crep;
+        private IPakageRepository prep;
+        private IDriverRepository drep;
 
         /// <summary>
         /// Initializes a new instance of the <see cref="Logic"/> class.
@@ -37,7 +37,7 @@ namespace Transporter.Logic
         /// <param name="crep">The mocked CustomerRepository.</param>
         /// <param name="prep">The mocked PakageRepository.</param>
         /// <param name="drep">The mocked DriverRepository.</param>
-        public Logic(CustomerRepository crep, PakageRepository prep, DriverRepository drep)
+        public Logic(ICustomerRepository crep, IPakageRepository prep, IDriverRepository drep)
         {
             this.crep = crep;
             this.prep = prep;
