@@ -53,7 +53,7 @@ namespace Transporter.Logic
         /// <param name="e_mail">The new customers e-mail adress.</param>
         public void AddCustomer(string name, string adress, string phoneNum, string e_mail)
         {
-            int id = this.crep.GetLastId() + 1;
+            int id = this.crep.LastId + 1;
             this.crep.Insert(id, name, adress, phoneNum, e_mail);
         }
 
@@ -67,7 +67,7 @@ namespace Transporter.Logic
         /// <param name="phoneNum">The new drivers phone number.</param>
         public void AddDriver(string name, string adress, DateTime birthDate, string licencePlate, string phoneNum)
         {
-            int id = this.drep.GetLastId() + 1;
+            int id = this.drep.LastId + 1;
             this.drep.Insert(id, name, adress, birthDate, licencePlate, phoneNum);
         }
 
@@ -82,8 +82,8 @@ namespace Transporter.Logic
         /// <param name="size">The new pakages size.</param>
         public void AddPakage(string senderName, string senderAdress, string receiverName, string receiverAdress, int weight, string size)
         {
-            int id = this.prep.GetLastId() + 1;
-            int driverId = new Random().Next(0, this.drep.GetLastId());
+            int id = this.prep.LastId + 1;
+            int driverId = new Random().Next(0, this.drep.LastId);
             this.prep.Insert(id, this.crep.GetId(senderName, senderAdress), this.crep.GetId(receiverName, receiverAdress), weight, size, driverId);
         }
 
