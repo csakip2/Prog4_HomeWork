@@ -18,13 +18,13 @@ namespace Transporter.Repository
         /// Returns all elements of a table in a string array list.
         /// </summary>
         /// <returns>All rows in a string array and the table in a list.</returns>
-        List<string[]> GetTable();
+        List<string[]> GetTableGen();
 
         /// <summary>
         /// Removes a given entity from a table.
         /// </summary>
         /// <param name="id">The id of the entity.</param>
-        void Remove(int id);
+        void RemoveGen(int id);
 
         /// <summary>
         /// Gets the id of an entity from a table.
@@ -32,7 +32,7 @@ namespace Transporter.Repository
         /// <param name="param1">Parameter1 (name, senderid) for geting the id.</param>
         /// <param name="param2">Parameter2 (adress, reciverid) for geting the id.</param>
         /// <returns>The id of the entity.</returns>
-        int GetId(object param1, object param2);
+        int GetIdGen(object param1, object param2);
 
         /// <summary>
         /// Gets the last used id in the table.

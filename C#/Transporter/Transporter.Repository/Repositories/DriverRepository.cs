@@ -26,6 +26,11 @@ namespace Transporter.Repository
         }
 
         /// <summary>
+        /// Gets the last id of the table.
+        /// </summary>
+        public int LastId => this.GetLastId();
+
+        /// <summary>
         /// Changes the adress of the driver.
         /// </summary>
         /// <param name="id">The id of the driver.</param>
@@ -59,14 +64,14 @@ namespace Transporter.Repository
         }
 
         /// <summary>
-        /// Returns the ID of the driver from its name and adress.
+        /// Returns the drivers id.
         /// </summary>
-        /// <param name="param1">The drivers name.</param>
-        /// <param name="param2">The drivers adress.</param>
-        /// <returns>The ID of the driver.</returns>
-        public int GetId(object param1, object param2)
+        /// <param name="name">The drivers name.</param>
+        /// <param name="adress">The drivers adress.</param>
+        /// <returns>The drivers id.</returns>
+        public int GetId(string name, string adress)
         {
-            return (int)this.tde.DRIVER.Where(x => x.DNAME.ToString().Equals(param1.ToString()) && x.DADRESS.ToString().Equals(param2.ToString())).Single().DRIVER_ID;
+            return this.GetIdGen(name, adress);
         }
 
         /// <summary>
@@ -92,7 +97,7 @@ namespace Transporter.Repository
         /// Returns the driver table.
         /// </summary>
         /// <returns>The whole table.</returns>
-        public List<string[]> GetTable()
+        public List<string[]> GetTableGen()
         {
             List<string[]> table = new List<string[]>();
 
@@ -139,10 +144,39 @@ namespace Transporter.Repository
         /// Removes a driver from the table.
         /// </summary>
         /// <param name="id">The id of the driver.</param>
-        public void Remove(int id)
+        public void RemoveGen(int id)
         {
             this.tde.DRIVER.Remove(this.tde.DRIVER.Where(x => x.DRIVER_ID.ToString().Equals(id.ToString())).Single());
             this.tde.SaveChanges();
+        }
+
+        /// <summary>
+        /// Returns the ID of the driver from its name and adress.
+        /// </summary>
+        /// <param name="param1">The drivers name.</param>
+        /// <param name="param2">The drivers adress.</param>
+        /// <returns>The ID of the driver.</returns>
+        public int GetIdGen(object param1, object param2)
+        {
+            return (int)this.tde.DRIVER.Where(x => x.DNAME.ToString().Equals(param1.ToString()) && x.DADRESS.ToString().Equals(param2.ToString())).Single().DRIVER_ID;
+        }
+
+        /// <summary>
+        /// Removes a driver from the table.
+        /// </summary>
+        /// <param name="id">The drivers id.</param>
+        public void Remove(int id)
+        {
+            this.RemoveGen(id);
+        }
+
+        /// <summary>
+        /// Returns the whole driver table.
+        /// </summary>
+        /// <returns>The driver table.</returns>
+        public List<string[]> GetTable()
+        {
+            return this.GetTableGen();
         }
     }
 }

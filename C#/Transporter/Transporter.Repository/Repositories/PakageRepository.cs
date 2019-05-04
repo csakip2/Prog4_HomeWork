@@ -26,6 +26,11 @@ namespace Transporter.Repository
         }
 
         /// <summary>
+        /// Gets the last id of the table.
+        /// </summary>
+        public int LastId => this.GetLastId();
+
+        /// <summary>
         /// Changes the pakage's driver.
         /// </summary>
         /// <param name="id">Id of the pakage.</param>
@@ -58,9 +63,20 @@ namespace Transporter.Repository
         /// <param name="param1">The pakages sender id.</param>
         /// <param name="param2">The pakages reciver id.</param>
         /// <returns>The pakages id.</returns>
-        public int GetId(object param1, object param2)
+        public int GetIdGen(object param1, object param2)
         {
             return (int)this.tde.PAKAGE.Where(x => x.PSENDER_ID.ToString().Equals(param1.ToString()) && x.PRECEIVER_ID.ToString().Equals(param2.ToString())).Single().PAKAGE_ID;
+        }
+
+        /// <summary>
+        /// Returns the pakages id.
+        /// </summary>
+        /// <param name="senderId">The sender id.</param>
+        /// <param name="reciverId">The reciver id.</param>
+        /// <returns>The pakages id.</returns>
+        public int GetId(int senderId, int reciverId)
+        {
+            return this.GetIdGen(senderId, reciverId);
         }
 
         /// <summary>
@@ -107,7 +123,7 @@ namespace Transporter.Repository
         /// Returns the pakage table.
         /// </summary>
         /// <returns>The whole table.</returns>
-        public List<string[]> GetTable()
+        public List<string[]> GetTableGen()
         {
             List<string[]> table = new List<string[]>();
 
@@ -155,10 +171,28 @@ namespace Transporter.Repository
         /// Removes a pakage from the table.
         /// </summary>
         /// <param name="id">The id of the pakage.</param>
-        public void Remove(int id)
+        public void RemoveGen(int id)
         {
             this.tde.PAKAGE.Remove(this.tde.PAKAGE.Where(x => x.PAKAGE_ID.ToString().Equals(id.ToString())).Single());
             this.tde.SaveChanges();
+        }
+
+        /// <summary>
+        /// Removes a pakage from the table.
+        /// </summary>
+        /// <param name="id">The pakages id.</param>
+        public void Remove(int id)
+        {
+            this.RemoveGen(id);
+        }
+
+        /// <summary>
+        /// Returns the whole pakage table.
+        /// </summary>
+        /// <returns>The pakage table.</returns>
+        public List<string[]> GetTable()
+        {
+            return this.GetTableGen();
         }
 
         /// <summary>

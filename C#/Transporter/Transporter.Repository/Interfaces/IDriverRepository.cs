@@ -17,6 +17,11 @@ namespace Transporter.Repository
     public interface IDriverRepository : IRepository<DRIVER>
     {
         /// <summary>
+        /// Gets the last id of the table.
+        /// </summary>
+        int LastId { get; }
+
+        /// <summary>
         /// Changes the drivers adress.
         /// </summary>
         /// <param name="id">The id of the driver.</param>
@@ -47,5 +52,25 @@ namespace Transporter.Repository
         /// <param name="licencePlate">The drivers licence plate number.</param>
         /// <param name="phoneNum">The drivers phone number.</param>
         void Insert(int id, string name, string adress, DateTime birthDate, string licencePlate, string phoneNum);
+
+        /// <summary>
+        /// Returns the drivers id.
+        /// </summary>
+        /// <param name="name">The drivers name.</param>
+        /// <param name="adress">The drivers adress.</param>
+        /// <returns>The drivers id.</returns>
+        int GetId(string name, string adress);
+
+        /// <summary>
+        /// Removes a given entity from a table.
+        /// </summary>
+        /// <param name="id">The id of the entity.</param>
+        void Remove(int id);
+
+        /// <summary>
+        /// Returns all elements of a table in a string array list.
+        /// </summary>
+        /// <returns>All rows in a string array and the table in a list.</returns>
+        List<string[]> GetTable();
     }
 }

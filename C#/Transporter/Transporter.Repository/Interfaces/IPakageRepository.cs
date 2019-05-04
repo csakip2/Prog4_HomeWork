@@ -17,6 +17,11 @@ namespace Transporter.Repository
     public interface IPakageRepository : IRepository<PAKAGE>
     {
         /// <summary>
+        /// Gets the last id of the table.
+        /// </summary>
+        int LastId { get; }
+
+        /// <summary>
         /// Changes the pakages driver.
         /// </summary>
         /// <param name="id">Pakages id.</param>
@@ -47,5 +52,25 @@ namespace Transporter.Repository
         /// <param name="size">The pakages size.</param>
         /// <param name="driverId">The drivers id.</param>
         void Insert(int id, int senderId, int receiverId, int weight, string size, int driverId);
+
+        /// <summary>
+        /// Returns the pakages id.
+        /// </summary>
+        /// <param name="senderId">The sender id.</param>
+        /// <param name="reciverId">The reciver id.</param>
+        /// <returns>The pakages id.</returns>
+        int GetId(int senderId, int reciverId);
+
+        /// <summary>
+        /// Removes a given entity from a table.
+        /// </summary>
+        /// <param name="id">The id of the entity.</param>
+        void Remove(int id);
+
+        /// <summary>
+        /// Returns all elements of a table in a string array list.
+        /// </summary>
+        /// <returns>All rows in a string array and the table in a list.</returns>
+        List<string[]> GetTable();
     }
 }

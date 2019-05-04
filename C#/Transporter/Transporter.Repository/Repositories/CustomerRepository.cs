@@ -26,6 +26,11 @@ namespace Transporter.Repository
         }
 
         /// <summary>
+        /// Gets the last id of the table.
+        /// </summary>
+        public int LastId => this.GetLastId();
+
+        /// <summary>
         /// Changes the customers adress.
         /// </summary>
         /// <param name="id">The customers id.</param>
@@ -59,12 +64,23 @@ namespace Transporter.Repository
         }
 
         /// <summary>
+        /// Returns the customers id.
+        /// </summary>
+        /// <param name="name">The customers name.</param>
+        /// <param name="adress">The customers adress.</param>
+        /// <returns>The customers id.</returns>
+        public int GetId(string name, string adress)
+        {
+            return this.GetIdGen(name, adress);
+        }
+
+        /// <summary>
         /// Returns the ID of the customer from its name and adress.
         /// </summary>
         /// <param name="param1">The customers name.</param>
         /// <param name="param2">The customers adress.</param>
         /// <returns>The ID of the customer.</returns>
-        public int GetId(object param1, object param2)
+        public int GetIdGen(object param1, object param2)
         {
             return (int)this.tde.CUSTOMER.Where(x => x.CNAME.ToString().Equals(param1.ToString()) && x.CADRESS.ToString().Equals(param2.ToString())).Single().CUSTOMER_ID;
         }
@@ -89,10 +105,19 @@ namespace Transporter.Repository
         }
 
         /// <summary>
+        /// Gets the whole customer table.
+        /// </summary>
+        /// <returns>The customer table.</returns>
+        public List<string[]> GetTable()
+        {
+            return this.GetTableGen();
+        }
+
+        /// <summary>
         /// Retturns all customers in a list.
         /// </summary>
         /// <returns>Everything from the Customer table.</returns>
-        public List<string[]> GetTable()
+        public List<string[]> GetTableGen()
         {
             List<string[]> table = new List<string[]>();
 
@@ -136,8 +161,17 @@ namespace Transporter.Repository
         /// <summary>
         /// Removes a customer from the table.
         /// </summary>
-        /// <param name="id">The id of the customer to remove.</param>
+        /// <param name="id">The customers id.</param>
         public void Remove(int id)
+        {
+            this.RemoveGen(id);
+        }
+
+        /// <summary>
+        /// Removes a customer from the table.
+        /// </summary>
+        /// <param name="id">The id of the customer to remove.</param>
+        public void RemoveGen(int id)
         {
             this.tde.CUSTOMER.Remove(this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.ToString().Equals(id.ToString())).Single());
             this.tde.SaveChanges();

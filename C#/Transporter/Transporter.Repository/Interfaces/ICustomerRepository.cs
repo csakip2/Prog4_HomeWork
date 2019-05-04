@@ -17,6 +17,11 @@ namespace Transporter.Repository
     public interface ICustomerRepository : IRepository<CUSTOMER>
     {
         /// <summary>
+        /// Gets the last id of the table.
+        /// </summary>
+        int LastId { get; }
+
+        /// <summary>
         /// Changes a customers adress.
         /// </summary>
         /// <param name="id">The ID of the customer.</param>
@@ -46,5 +51,25 @@ namespace Transporter.Repository
         /// <param name="phoneNum">The customers phone number.</param>
         /// <param name="eMail">The customers e-mail adress.</param>
         void Insert(int id, string name, string andress, string phoneNum, string eMail);
+
+        /// <summary>
+        /// Returns the customers id.
+        /// </summary>
+        /// <param name="name">The customers name.</param>
+        /// <param name="adress">The customers adress.</param>
+        /// <returns>The customers id.</returns>
+        int GetId(string name, string adress);
+
+        /// <summary>
+        /// Removes a given entity from a table.
+        /// </summary>
+        /// <param name="id">The id of the entity.</param>
+        void Remove(int id);
+
+        /// <summary>
+        /// Returns all elements of a table in a string array list.
+        /// </summary>
+        /// <returns>All rows in a string array and the table in a list.</returns>
+        List<string[]> GetTable();
     }
 }
