@@ -39,7 +39,7 @@ namespace Transporter.LogicTests
         }
 
         /// <summary>
-        /// Test for customer GetTable.
+        /// Tests the GetCustomer method.
         /// </summary>
         [Test]
         public void TestGetCustomers()
@@ -106,6 +106,155 @@ namespace Transporter.LogicTests
             this.logic.ChangeCustomerAdress("abc", "abc", "cba");
 
             this.moqCustRepo.Verify(m => m.ChangeAdress(0, "cba"), Times.Exactly(1));
+        }
+
+        /// <summary>
+        /// Tests customer e-mail adress change.
+        /// </summary>
+        [Test]
+        public void TestChangeCustomerE_mailAdress()
+        {
+            this.moqCustRepo.Setup(m => m.ChangeEmail(0, "cba"));
+
+            this.logic = new Logic(this.moqCustRepo.Object, this.moqPakRepo.Object, this.moqDrivRepo.Object);
+
+            this.logic.ChangeCustomerEmail("abc", "abc", "cba");
+
+            this.moqCustRepo.Verify(m => m.ChangeEmail(0, "cba"), Times.Exactly(1));
+        }
+
+        /// <summary>
+        /// Tests customer adress change.
+        /// </summary>
+        [Test]
+        public void TestChangeCustomerPhoneNum()
+        {
+            this.moqCustRepo.Setup(m => m.ChangePhoneNum(0, "123"));
+
+            this.logic = new Logic(this.moqCustRepo.Object, this.moqPakRepo.Object, this.moqDrivRepo.Object);
+
+            this.logic.ChangeCustomerPhoneNum("abc", "abc", "123");
+
+            this.moqCustRepo.Verify(m => m.ChangePhoneNum(0, "123"), Times.Exactly(1));
+        }
+
+        /// <summary>
+        /// Tests
+        /// </summary>
+        [Test]
+        public void TestGetDrivers()
+        {
+            List<string[]> drivers = new List<string[]>()
+            {
+                new string[] { "1", "Aladar", "Alma ut 8", "1970", "asd653", "303652736" },
+                new string[] { "2", "Bela", "Bagoly utca 2", "1980", "rtz423", "205489264" },
+                new string[] { "3", "Cecil", "Cekla ter 12", "1960", "abc123", "705286418" }
+            };
+
+            this.moqDrivRepo.Setup(m => m.GetTable()).Returns(drivers);
+
+            this.logic = new Logic(this.moqCustRepo.Object, this.moqPakRepo.Object, this.moqDrivRepo.Object);
+
+            var res = this.logic.RetriveDrivers();
+
+            Assert.That(res.Count(), Is.EqualTo(3));
+        }
+
+        /// <summary>
+        /// Tests the GetDriver methods return format.
+        /// </summary>
+        [Test]
+        public void TestGetDirverFortat()
+        {
+            this.moqDrivRepo.Setup(m => m.GetTable()).Returns(new List<string[]>() { new string[] { "1", "Aladar", "Alma ut 8", "1970", "asd653", "303652736" } });
+
+            this.logic = new Logic(this.moqCustRepo.Object, this.moqPakRepo.Object, this.moqDrivRepo.Object);
+
+            var res = this.logic.RetriveDrivers();
+
+            Assert.That(res[0], Is.EqualTo("1, Aladar, Alma ut 8, 1970, asd653, 303652736"));
+        }
+
+        /// <summary>
+        /// Tests ChangeDriverAdress method.
+        /// </summary>
+        [Test]
+        public void TestChangeDriverAdress()
+        {
+            this.moqDrivRepo.Setup(m => m.ChangeAdress(0, "abc"));
+
+            this.logic = new Logic(this.moqCustRepo.Object, this.moqPakRepo.Object, this.moqDrivRepo.Object);
+
+            this.logic.ChangeDriverAdress("abc", "abc", "abc");
+
+            this.moqDrivRepo.Verify(m => m.ChangeAdress(0, "abc"), Times.Exactly(1));
+        }
+
+        /// <summary>
+        /// Tests ChangeDriverLicencePlate method.
+        /// </summary>
+        [Test]
+        public void TestChangeDriverLicencePlate()
+        {
+            this.moqDrivRepo.Setup(m => m.ChangeLicPlate(0, "abc"));
+
+            this.logic = new Logic(this.moqCustRepo.Object, this.moqPakRepo.Object, this.moqDrivRepo.Object);
+
+            this.logic.ChangeDriverLicPlate("abc", "abc", "abc123");
+
+            this.moqDrivRepo.Verify(m => m.ChangeLicPlate(0, "abc123"), Times.Exactly(1));
+        }
+
+        /// <summary>
+        /// Tests ChangeDriverLicencePlate method.
+        /// </summary>
+        [Test]
+        public void TestChangeDriverPhoneNumber()
+        {
+            this.moqDrivRepo.Setup(m => m.ChangePhoneNum(0, "abc"));
+
+            this.logic = new Logic(this.moqCustRepo.Object, this.moqPakRepo.Object, this.moqDrivRepo.Object);
+
+            this.logic.ChangeDriverPhoneNum("abc", "abc", "abc");
+
+            this.moqDrivRepo.Verify(m => m.ChangePhoneNum(0, "abc"), Times.Exactly(1));
+        }
+
+        /// <summary>
+        /// Tests the GetPakages method.
+        /// </summary>
+        [Test]
+        public void TestGetPakage()
+        {
+            List<string[]> pakages = new List<string[]>()
+            {
+                new string[] { "1", "SMALL", "1", "1", "2", "3" },
+                new string[] { "2", "MEDIUM", "1", "1", "2", "3" },
+                new string[] { "3", "LARGE", "1", "1", "2", "3" }
+            };
+
+            this.moqPakRepo.Setup(m => m.GetTable()).Returns(pakages);
+
+            this.logic = new Logic(this.moqCustRepo.Object, this.moqPakRepo.Object, this.moqDrivRepo.Object);
+
+            var res = this.logic.RetrivePakages();
+
+            Assert.That(res.Count(), Is.EqualTo(3));
+        }
+
+        /// <summary>
+        /// Tests the return format of GetPakages.
+        /// </summary>
+        [Test]
+        public void TestGetPakagesFormat()
+        {
+            this.moqPakRepo.Setup(m => m.GetTable()).Returns(new List<string[]>() { new string[] { "1", "SMALL", "1", "1", "2", "3" } });
+
+            this.logic = new Logic(this.moqCustRepo.Object, this.moqPakRepo.Object, this.moqDrivRepo.Object);
+
+            var res = this.logic.RetrivePakages();
+
+            Assert.That(res[0], Is.EqualTo("1, SMALL, 1, 1, 2, 3"));
         }
     }
 }
