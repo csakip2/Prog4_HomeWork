@@ -18,6 +18,12 @@ public class Controller implements Serializable{
     @XmlElement
     private List<Company> companies = new ArrayList<>();
     
+    private Pakage pak;
+
+    public void setPak(Pakage pak) {
+        this.pak = pak;
+    }
+    
     public Controller() {
         Company first = new Company(400);
         companies.add(first);
@@ -32,8 +38,19 @@ public class Controller implements Serializable{
         companies.add(fourth);
     }
     
-    private int CalculatePrice(Company comp, Pakage pak){
+    public void CalculatePrice(Pakage pak){
+        double timesFactor = 1;
         
+        if (pak.getSize().toUpperCase().equals("MEDIUM")) {
+            timesFactor = 1.5;
+        }
+        else if (pak.getSize().toUpperCase().equals("LARGE")) {
+            timesFactor = 2;
+        }
+        
+        for (Company company : companies) {
+            company.setShippingPrice((company.getBasePrice() * timesFactor * pak.getWeight()));
+        }
     }
     
     public Controller getInstance(){
