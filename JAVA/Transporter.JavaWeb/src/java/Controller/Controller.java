@@ -13,11 +13,8 @@ import javax.xml.bind.annotation.XmlRootElement;
 @XmlRootElement(name = "companies")
 @XmlAccessorType(XmlAccessType.FIELD)
 public class Controller implements Serializable{
-    private static Controller instance;
-
-    @XmlElement
-    private List<Company> companies = new ArrayList<>();
     
+    private static Controller instance;
     
     public Controller() {
         Company first = new Company(400);
@@ -47,6 +44,9 @@ public class Controller implements Serializable{
             company.setShippingPrice((company.getBasePrice() * timesFactor * pak.getWeight()));
         }
     }
+    
+    @XmlElement
+    private List<Company> companies = new ArrayList<>();
     
     public static Controller getInstance(){
         if (instance == null) {
