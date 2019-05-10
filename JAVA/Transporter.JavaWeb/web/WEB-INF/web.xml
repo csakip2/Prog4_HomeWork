@@ -4,9 +4,17 @@
         <servlet-name>AllPricesServlet</servlet-name>
         <servlet-class>Servlet.AllPricesServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>Test</servlet-name>
+        <servlet-class>Servlet.Test</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>AllPricesServlet</servlet-name>
         <url-pattern>/AllPricesServlet</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>Test</servlet-name>
+        <url-pattern>/Test</url-pattern>
     </servlet-mapping>
     <session-config>
         <session-timeout>
