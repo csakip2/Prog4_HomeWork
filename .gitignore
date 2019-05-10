@@ -346,6 +346,7 @@ healthchecksdb
 
 # Backup folder for Package Reference Convert tool in Visual Studio 2017
 MigrationBackup/
+
 # Compiled class file
 *.class
 
@@ -369,6 +370,3 @@ MigrationBackup/
 
 # virtual machine crash logs, see http://www.java.com/en/download/help/error_hotspot.xml
 hs_err_pid*
-/JAVA/Transporter.JavaWeb/nbproject/private/
-/JAVA/Transporter.JavaWeb/build/
-/JAVA/Transporter.JavaWeb/dist/
