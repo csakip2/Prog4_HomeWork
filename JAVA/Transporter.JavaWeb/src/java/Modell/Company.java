@@ -14,13 +14,13 @@ public class Company implements Serializable{
     private int id;
     private int basePrice;
     @XmlElement
-    private int shippingPrice;
+    private double shippingPrice;
 
-    public int getShippingPrice() {
+    public double getShippingPrice() {
         return shippingPrice;
     }
 
-    public void setShippingPrice(int shippingPrice) {
+    public void setShippingPrice(double shippingPrice) {
         this.shippingPrice = shippingPrice;
     }
 
