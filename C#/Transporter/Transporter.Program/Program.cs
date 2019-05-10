@@ -4,6 +4,7 @@
 namespace Transporter.Program
 {
     using System;
+    using System.Xml.Linq;
     using Transporter.Logic;
 
     /// <summary>
@@ -434,8 +435,18 @@ namespace Transporter.Program
                 case 19:
                     Console.Clear();
 
+                    Console.WriteLine("Weight:");
+                    weight = int.Parse(Console.ReadLine());
+
+                    Console.WriteLine("Size:");
+                    size = Console.ReadLine();
+
+                    string url = @"http://localhost:8080/Transporter.JavaWeb/AllPricesServlet?weight=" + weight.ToString() + @"&size=" + size.ToUpper();
+
+                    XDocument xdoc = XDocument.Load(url);
+
                     Console.WriteLine();
-                    Console.WriteLine("Not implemented!");
+                    Console.WriteLine(xdoc);
                     Console.WriteLine();
                     Console.WriteLine("Press any key to return to menu.");
                     break;
