@@ -371,3 +371,4 @@ MigrationBackup/
 hs_err_pid*
 /JAVA/Transporter.JavaWeb/nbproject/private/
 /JAVA/Transporter.JavaWeb/build/
+/JAVA/Transporter.JavaWeb/dist/
