@@ -1,6 +1,11 @@
 package Modell;
 
 public class Pakage {
+    private static Pakage instance;
+
+    public static Pakage getInstance() {
+        return instance = new Pakage();
+    }
     private int weight;
     private String size;
 
