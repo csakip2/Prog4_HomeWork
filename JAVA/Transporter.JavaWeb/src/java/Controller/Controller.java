@@ -18,11 +18,6 @@ public class Controller implements Serializable{
     @XmlElement
     private List<Company> companies = new ArrayList<>();
     
-    private Pakage pak;
-
-    public void setPak(Pakage pak) {
-        this.pak = pak;
-    }
     
     public Controller() {
         Company first = new Company(400);
@@ -53,7 +48,7 @@ public class Controller implements Serializable{
         }
     }
     
-    public Controller getInstance(){
+    public static Controller getInstance(){
         if (instance == null) {
             instance = new Controller();
         }
