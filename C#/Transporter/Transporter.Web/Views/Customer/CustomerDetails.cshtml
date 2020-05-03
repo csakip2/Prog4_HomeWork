@@ -5,3 +5,28 @@
 
 <h2>Details of one Customer</h2>
 
+@Html.ActionLink("Back to the list", "Index");
+
+<table>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Id)</td>
+        <td>@Html.DisplayFor(m => m.Id)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Name)</td>
+        <td>@Html.DisplayFor(m => m.Name)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.Adress)</td>
+        <td>@Html.DisplayFor(m => m.Adress)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.PhoneNum)</td>
+        <td>@Html.DisplayFor(m => m.PhoneNum)</td>
+    </tr>
+    <tr>
+        <td>@Html.DisplayNameFor(m => m.EMail)</td>
+        <td>@Html.DisplayFor(m => m.EMail)</td>
+    </tr>
+</table>
+
