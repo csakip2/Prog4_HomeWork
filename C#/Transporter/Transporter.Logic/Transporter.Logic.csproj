@@ -55,12 +55,17 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="packages.config" />
+    <None Include="stylecop.json" />
   </ItemGroup>
   <ItemGroup>
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.CodeFixes.dll" />
     <Analyzer Include="..\packages\StyleCop.Analyzers.1.0.2\analyzers\dotnet\cs\StyleCop.Analyzers.dll" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Transporter.Data\Transporter.Data.csproj">
+      <Project>{fbb79f66-0980-4860-9a51-909fd3c98638}</Project>
+      <Name>Transporter.Data</Name>
+    </ProjectReference>
     <ProjectReference Include="..\Transporter.Repository\Transporter.Repository.csproj">
       <Project>{3ad27703-2e1a-4faf-810d-3803783d6958}</Project>
       <Name>Transporter.Repository</Name>

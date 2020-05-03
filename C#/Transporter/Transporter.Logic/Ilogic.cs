@@ -13,13 +13,23 @@ namespace Transporter.Logic
     /// <summary>
     /// Logic interface.
     /// </summary>
-    internal interface ILogic
+    public interface ILogic
     {
+        bool RemoveCustomer(int id);
+
+        void ChangeCustomer(int id, string name, string adress, string phoneNum, string eMail);
+
         /// <summary>
         /// Retrives the customer table.
         /// </summary>
         /// <returns>All elements in a tring array.</returns>
         string[] RetriveCustomers();
+
+        /// <summary>
+        /// List of cutomers.
+        /// </summary>
+        /// <returns>List.</returns>
+        List<Transporter.Data.CUSTOMER> GetCustomerList();
 
         /// <summary>
         /// Retrives the pakage table.
@@ -151,5 +161,7 @@ namespace Transporter.Logic
         /// <param name="name">The drivers name.</param>
         /// <param name="adress">The drivers adress.</param>
         void RemoveDriver(string name, string adress);
+
+        Transporter.Data.CUSTOMER GetOneCustomer(int id);
     }
 }

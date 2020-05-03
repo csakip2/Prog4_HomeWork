@@ -71,5 +71,13 @@ namespace Transporter.Repository
         /// </summary>
         /// <returns>All rows in a string array and the table in a list.</returns>
         List<string[]> GetTable();
+
+        /// <summary>
+        /// Afgasgsfg
+        /// </summary>
+        /// <returns>List.</returns>
+        List<CUSTOMER> GetTableList();
+
+        CUSTOMER GetOneCustomer(int id);
     }
 }

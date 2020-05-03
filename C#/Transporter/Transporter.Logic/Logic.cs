@@ -57,6 +57,13 @@ namespace Transporter.Logic
             this.crep.Insert(id, name, adress, phoneNum, e_mail);
         }
 
+        public void ChangeCustomer(int id, string name, string adress, string phoneNum, string eMail)
+        {
+            this.crep.ChangeAdress(id, adress);
+            this.crep.ChangePhoneNum(id, phoneNum);
+            this.crep.ChangeEmail(id, phoneNum);
+        }
+
         /// <summary>
         /// Adds a new driver to the table.
         /// </summary>
@@ -193,6 +200,12 @@ namespace Transporter.Logic
             this.crep.Remove(this.crep.GetId(name, adress));
         }
 
+        public bool RemoveCustomer(int id)
+        {
+            this.crep.Remove(id);
+            return true;
+        }
+
         /// <summary>
         /// Removes a driver from the table.
         /// </summary>
@@ -232,6 +245,15 @@ namespace Transporter.Logic
         }
 
         /// <summary>
+        /// Returns a list of the customers.
+        /// </summary>
+        /// <returns>List.</returns>
+        public List<Transporter.Data.CUSTOMER> GetCustomerList()
+        {
+            return this.crep.GetTableList();
+        }
+
+        /// <summary>
         /// Retrives the driver table.
         /// </summary>
         /// <returns>All elements in a tring array.</returns>
@@ -267,6 +289,11 @@ namespace Transporter.Logic
             }
 
             return table;
+        }
+
+        public Transporter.Data.CUSTOMER GetOneCustomer(int id)
+        {
+            return this.crep.GetOneCustomer(id);
         }
     }
 }

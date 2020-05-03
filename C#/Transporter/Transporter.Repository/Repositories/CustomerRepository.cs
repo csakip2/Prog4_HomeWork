@@ -114,6 +114,15 @@ namespace Transporter.Repository
         }
 
         /// <summary>
+        /// Gets the whole customer table.
+        /// </summary>
+        /// <returns>The customer table.</returns>
+        public List<CUSTOMER> GetTableList()
+        {
+            return this.tde.CUSTOMER.ToList();
+        }
+
+        /// <summary>
         /// Retturns all customers in a list.
         /// </summary>
         /// <returns>Everything from the Customer table.</returns>
@@ -175,6 +184,11 @@ namespace Transporter.Repository
         {
             this.tde.CUSTOMER.Remove(this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.ToString().Equals(id.ToString())).Single());
             this.tde.SaveChanges();
+        }
+
+        public CUSTOMER GetOneCustomer(int id)
+        {
+            return this.tde.CUSTOMER.Where(x => x.CUSTOMER_ID.ToString().Equals(id.ToString())).Single();
         }
     }
 }

@@ -1,88 +1,90 @@
-﻿using System;
+﻿using AutoMapper;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
+using Transporter.Logic;
+using Transporter.Web.Models;
 
 namespace Transporter.Web.Controllers
 {
     public class CustomerController : Controller
     {
+        ILogic logic;
+        IMapper mapper;
+        CustomersViewModel vm;
+
+        public CustomerController()
+        {
+            logic = new Logic.Logic();
+            mapper = MapperFactory.CreateMapper();
+            vm = new CustomersViewModel();
+            vm.EditedCustomer = new Customer();
+            var customers = logic.GetCustomerList();
+            vm.ListOfCustomers = mapper.Map<IList<Data.CUSTOMER>, List<Models.Customer>>(customers);
+        }
+
+        private Customer GetCustonerModel(int id)
+        {
+            Data.CUSTOMER oneCustomer = logic.GetOneCustomer(id);
+            return mapper.Map<Data.CUSTOMER, Models.Customer>(oneCustomer);
+        }
+
         // GET: Customer
         public ActionResult Index()
         {
-            return View();
+            ViewData["editAction"] = "AddNew";
+            return View("CustomerIndex", vm);
         }
 
         // GET: Customer/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            return View("CustomerDetails", GetCustonerModel(id));
         }
 
-        // GET: Customer/Create
-        public ActionResult Create()
+        // GET: Customer/Remove/5
+        public ActionResult Remove(int id)
         {
-            return View();
-        }
-
-        // POST: Customer/Create
-        [HttpPost]
-        public ActionResult Create(FormCollection collection)
-        {
-            try
+            TempData["editResult"] = "Delete Failed";
+            if (logic.RemoveCustomer(id))
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                TempData["editResult"] = "Delete OK";
             }
-            catch
-            {
-                return View();
-            }
+            return RedirectToAction("Index");
         }
 
         // GET: Customer/Edit/5
         public ActionResult Edit(int id)
         {
-            return View();
+            ViewData["editAction"] = "Edit";
+            vm.EditedCustomer = GetCustonerModel(id);
+            return View("CustomerIndex", vm);
         }
 
-        // POST: Customer/Edit/5
+        //POST: Customer/Edit
         [HttpPost]
-        public ActionResult Edit(int id, FormCollection collection)
+        public ActionResult Edit(Customer customer, string editAction)
         {
-            try
+            if (ModelState.IsValid && customer != null)
             {
-                // TODO: Add update logic here
-
+                TempData["editResult"] = "Edit OK";
+                if (editAction == "AddNew")
+                {
+                    logic.AddCustomer(customer.Name, customer.Adress, customer.PhoneNum, customer.EMail);
+                }
+                else
+                {
+                    logic.ChangeCustomer(customer.Id, customer.Name, customer.Adress, customer.PhoneNum, customer.EMail);
+                }
                 return RedirectToAction("Index");
             }
-            catch
+            else
             {
-                return View();
-            }
-        }
-
-        // GET: Customer/Delete/5
-        public ActionResult Delete(int id)
-        {
-            return View();
-        }
-
-        // POST: Customer/Delete/5
-        [HttpPost]
-        public ActionResult Delete(int id, FormCollection collection)
-        {
-            try
-            {
-                // TODO: Add delete logic here
-
-                return RedirectToAction("Index");
-            }
-            catch
-            {
-                return View();
+                ViewData["editAction"] = "Edit";
+                vm.EditedCustomer = customer;
+                return View("CustomerIndex", vm);
             }
         }
     }
