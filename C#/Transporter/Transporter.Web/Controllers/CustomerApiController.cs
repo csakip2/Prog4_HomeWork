@@ -19,5 +19,12 @@ namespace Transporter.Web.Controllers
             logic = new Logic.Logic();
             mapper = MapperFactory.CreateMapper();
         }
+
+        // GET: api/CustomerApi
+        public IEnumerable<Models.Customer> Get()
+        {
+            var customers = logic.GetCustomerList();
+            return mapper.Map<IList<Data.CUSTOMER>, List<Models.Customer>>(customers);
+        }
     }
 }
