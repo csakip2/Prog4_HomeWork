@@ -6,6 +6,7 @@ using System.Net;
 using System.Net.Http;
 using System.Web.Http;
 using Transporter.Logic;
+using Transporter.Web.Models;
 
 namespace Transporter.Web.Controllers
 {
@@ -13,5 +14,10 @@ namespace Transporter.Web.Controllers
     {
         ILogic logic;
         IMapper mapper;
+        public CustomerApiController()
+        {
+            logic = new Logic.Logic();
+            mapper = MapperFactory.CreateMapper();
+        }
     }
 }
