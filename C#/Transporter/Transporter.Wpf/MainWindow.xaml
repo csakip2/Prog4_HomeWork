@@ -5,8 +5,17 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:Transporter.Wpf"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="462" Width="399.2"
+        Loaded="Window_Loaded" Closing="Window_Closing">
+    <Window.DataContext>
+        <local:MainVM />
+    </Window.DataContext>
     <Grid>
-        
+        <DataGrid ItemsSource="{Binding Path=AllCustomers}" SelectedItem="{Binding Path=SelectedCustomer}" IsReadOnly="False" HorizontalAlignment="Left" Height="400" Margin="10,10,0,0" VerticalAlignment="Top" Width="267"/>
+        <Button Content="LOAD" Command="{Binding Path=LoadCmd}" HorizontalAlignment="Left" Margin="295,30,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="ADD" Command="{Binding Path=AddCmd}" HorizontalAlignment="Left" Margin="295,54,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="MOD" Command="{Binding Path=ModCmd}" HorizontalAlignment="Left" Margin="295,79,0,0" VerticalAlignment="Top" Width="75"/>
+        <Button Content="DEL" Command="{Binding Path=DelCmd}" HorizontalAlignment="Left" Margin="295,103,0,0" VerticalAlignment="Top" Width="75"/>
+
     </Grid>
 </Window>
