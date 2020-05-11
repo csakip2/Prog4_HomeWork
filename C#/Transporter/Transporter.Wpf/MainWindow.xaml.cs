@@ -1,4 +1,5 @@
-﻿using System;
+﻿using GalaSoft.MvvmLight.Messaging;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -27,12 +28,23 @@ namespace Transporter.Wpf
 
         private void Window_Loaded(object sender, RoutedEventArgs e)
         {
+            Messenger.Default.Register<string>(this, "CustomerResult", msg => 
+            {
+                (DataContext as MainVM).LoadCmd.Execute(null);
+                MessageBox.Show(msg);
+            });
 
+            (DataContext as MainVM).Editorfunc = (customer) =>
+            {
+                EditorWindow win = new EditorWindow();
+                win.DataContext = customer;
+                return (win.ShowDialog() == true);
+            };
         }
 
         private void Window_Closing(object sender, System.ComponentModel.CancelEventArgs e)
         {
-
+            Messenger.Default.Unregister(this);
         }
     }
 }

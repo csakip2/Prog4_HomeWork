@@ -25,7 +25,7 @@ namespace Transporter.Wpf
         {
             string json = client.GetStringAsync(url + "all").Result;
             var list = JsonConvert.DeserializeObject<List<CustomerVM>>(json);
-            SendMessage(true);
+            //SendMessage(true);
             return list;
         }
 
