@@ -164,6 +164,7 @@
     <Compile Include="Areas\HelpPage\SampleGeneration\SampleDirection.cs" />
     <Compile Include="Areas\HelpPage\SampleGeneration\TextSample.cs" />
     <Compile Include="Areas\HelpPage\XmlDocumentationProvider.cs" />
+    <Compile Include="Controllers\CalorieCounterController.cs" />
     <Compile Include="Controllers\CustomerApiController.cs" />
     <Compile Include="Controllers\CustomerController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
@@ -171,8 +172,11 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Models\CalorieInput.cs" />
+    <Compile Include="Models\CalorieResult.cs" />
     <Compile Include="Models\Customer.cs" />
     <Compile Include="Models\CustomersViewModel.cs" />
+    <Compile Include="Models\Exercise.cs" />
     <Compile Include="Models\MapperFactory.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
@@ -234,6 +238,8 @@
     <Content Include="Views\Customer\CustomerList.cshtml" />
     <Content Include="Views\Customer\CustomerEdit.cshtml" />
     <Content Include="Views\Customer\CustomerIndex.cshtml" />
+    <Content Include="Views\CalorieCounter\CalorieInput.cshtml" />
+    <Content Include="Views\CalorieCounter\CalorieResult.cshtml" />
   </ItemGroup>
   <ItemGroup />
   <ItemGroup>

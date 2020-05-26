@@ -1,0 +1,21 @@
+﻿@model List<CalorieCounter.Models.Exercise>
+@{
+    ViewBag.Title = "CalorieInput";
+}
+
+<h2>Számold ki mennyi kalóriát égetsz!</h2>
+
+<form method="POST" action="/CalorieCounter/Calories">
+    <p>Sportoló neve<input type="text" name="Name" /></p>
+    <p>Sportoló tömege<input type="text" name="Weight" /></p>
+    <p>Gyakorlat<select id="Exercise" name="Exercise">
+        @foreach (var item in Model)
+        {
+            <option value="@item.ExName">@item.ExName</option>
+        }
+        </select></p>
+    <p>Gyakorlat hossza(perc)<input type="text" name="Duration" /></p>
+    <input type="submit" value="Kiszámol" />
+
+</form>
+

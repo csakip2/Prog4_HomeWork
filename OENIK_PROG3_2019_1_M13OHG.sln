@@ -9,8 +9,6 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transporter.Data", "Transpo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transporter.Logic", "Transporter.Logic\Transporter.Logic.csproj", "{79BADACE-85AF-447C-B49A-67C5417B460B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transporter.LogicTests", "Transporter.LogicTests\Transporter.LogicTests.csproj", "{2EF24760-983D-48BE-88CF-57F0B24054AA}"
-EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transporter.Repository", "Transporter.Repository\Transporter.Repository.csproj", "{3AD27703-2E1A-4FAF-810D-3803783D6958}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Transporter.Web", "Transporter.Web\Transporter.Web.csproj", "{3DD023E7-0600-4BEA-B461-CCA7E431162A}"
@@ -37,10 +35,6 @@ Global
 		{79BADACE-85AF-447C-B49A-67C5417B460B}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79BADACE-85AF-447C-B49A-67C5417B460B}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79BADACE-85AF-447C-B49A-67C5417B460B}.Release|Any CPU.Build.0 = Release|Any CPU
-		{2EF24760-983D-48BE-88CF-57F0B24054AA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{2EF24760-983D-48BE-88CF-57F0B24054AA}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{2EF24760-983D-48BE-88CF-57F0B24054AA}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{2EF24760-983D-48BE-88CF-57F0B24054AA}.Release|Any CPU.Build.0 = Release|Any CPU
 		{3AD27703-2E1A-4FAF-810D-3803783D6958}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
 		{3AD27703-2E1A-4FAF-810D-3803783D6958}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{3AD27703-2E1A-4FAF-810D-3803783D6958}.Release|Any CPU.ActiveCfg = Release|Any CPU
